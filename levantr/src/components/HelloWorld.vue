@@ -1,114 +1,56 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br />
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener"
-        >vue-cli documentation</a
-      >.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel"
-          target="_blank"
-          rel="noopener"
-          >babel</a
-        >
+  <div>
+    <!-- <ul>
+      <li v-for="(number, index) in numbers" :key="number.date" :class="index % 2 === 0 ? 'even': 'odd'">
+        {{number.date | moment("MM/DD/YYYY")}} - {{number.num_1}} {{number.num_2}} {{number.num_3}} {{number.num_4}} {{number.num_5}} {{number.num_6}} {{number.num_7}}
       </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint"
-          target="_blank"
-          rel="noopener"
-          >eslint</a
-        >
-      </li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li>
-        <a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a>
-      </li>
-      <li>
-        <a href="https://forum.vuejs.org" target="_blank" rel="noopener"
-          >Forum</a
-        >
-      </li>
-      <li>
-        <a href="https://chat.vuejs.org" target="_blank" rel="noopener"
-          >Community Chat</a
-        >
-      </li>
-      <li>
-        <a href="https://twitter.com/vuejs" target="_blank" rel="noopener"
-          >Twitter</a
-        >
-      </li>
-      <li>
-        <a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a>
-      </li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li>
-        <a href="https://router.vuejs.org" target="_blank" rel="noopener"
-          >vue-router</a
-        >
-      </li>
-      <li>
-        <a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a>
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-devtools#vue-devtools"
-          target="_blank"
-          rel="noopener"
-          >vue-devtools</a
-        >
-      </li>
-      <li>
-        <a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener"
-          >vue-loader</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/awesome-vue"
-          target="_blank"
-          rel="noopener"
-          >awesome-vue</a
-        >
-      </li>
-    </ul>
+    </ul> -->
   </div>
 </template>
 
 <script>
-export default {
-  name: "HelloWorld",
-  props: {
-    msg: String
+import mock from "../assets/mock.json";
+
+  export default {
+    data() {
+      return {
+        numbers: mock
+      }
+    },
+    mounted() {
+      const first = this.numbers.map(number => parseInt(number.num_1))
+      const second = this.numbers.map(number => parseInt(number.num_2))
+      const third = this.numbers.map(number => parseInt(number.num_3))
+      const fourth = this.numbers.map(number => parseInt(number.num_4))
+      const fifth = this.numbers.map(number => parseInt(number.num_5))
+      const sixth = this.numbers.map(number => parseInt(number.num_6))
+      const seventh = this.numbers.map(number => parseInt(number.num_7))
+      this.average(first)
+      this.average(second)
+      this.average(third)
+      this.average(fourth)
+      this.average(fifth)
+      this.average(sixth)
+      this.average(seventh)
+    },
+    methods: {
+      add() {
+        this.number+=1
+      },
+      minus() {
+        this.number-=1
+      },
+      average(values) {
+        let sum = values.reduce((previous, current) => current += previous);
+        let avg = sum / values.length;
+        console.log(avg)
+      }
+    }
   }
-};
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
 li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+  list-style: none;
 }
 </style>
