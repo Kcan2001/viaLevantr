@@ -740,8 +740,9 @@ body.footer-hidden footer {
 }
 
 .main-menu .navbar-header .navbar-brand .brand-logo {
-  background: url("../../app-assets/images/logo/frest-logo.png") no-repeat;
-  background-position: -65px -54px;
+  background: url("../../app-assets/images/logo/vl-logo.png") no-repeat;
+  /* background-position: -65px -54px; */
+  background-size: cover;
   height: 27px;
   width: 35px;
   float: left;
