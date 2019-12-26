@@ -11,42 +11,42 @@
 <script>
 import mock from "../assets/mock.json";
 
-  export default {
-    data() {
-      return {
-        numbers: mock
-      }
+export default {
+  data() {
+    return {
+      numbers: mock
+    };
+  },
+  mounted() {
+    const first = this.numbers.map(number => parseInt(number.num_1));
+    const second = this.numbers.map(number => parseInt(number.num_2));
+    const third = this.numbers.map(number => parseInt(number.num_3));
+    const fourth = this.numbers.map(number => parseInt(number.num_4));
+    const fifth = this.numbers.map(number => parseInt(number.num_5));
+    const sixth = this.numbers.map(number => parseInt(number.num_6));
+    const seventh = this.numbers.map(number => parseInt(number.num_7));
+    this.average(first);
+    this.average(second);
+    this.average(third);
+    this.average(fourth);
+    this.average(fifth);
+    this.average(sixth);
+    this.average(seventh);
+  },
+  methods: {
+    add() {
+      this.number += 1;
     },
-    mounted() {
-      const first = this.numbers.map(number => parseInt(number.num_1))
-      const second = this.numbers.map(number => parseInt(number.num_2))
-      const third = this.numbers.map(number => parseInt(number.num_3))
-      const fourth = this.numbers.map(number => parseInt(number.num_4))
-      const fifth = this.numbers.map(number => parseInt(number.num_5))
-      const sixth = this.numbers.map(number => parseInt(number.num_6))
-      const seventh = this.numbers.map(number => parseInt(number.num_7))
-      this.average(first)
-      this.average(second)
-      this.average(third)
-      this.average(fourth)
-      this.average(fifth)
-      this.average(sixth)
-      this.average(seventh)
+    minus() {
+      this.number -= 1;
     },
-    methods: {
-      add() {
-        this.number+=1
-      },
-      minus() {
-        this.number-=1
-      },
-      average(values) {
-        let sum = values.reduce((previous, current) => current += previous);
-        let avg = sum / values.length;
-        console.log(avg)
-      }
+    average() {
+      // let sum = values.reduce((previous, current) => (current += previous));
+      // let avg = sum / values.length;
+      // console.log(avg)
     }
   }
+};
 </script>
 
 <style scoped>
