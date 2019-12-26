@@ -1,14 +1,25 @@
 <template>
-  <div></div>
+  <div>
+    <Header />
+    <SideMenu/>
+    <Content/>
+    <Footer />
+  </div>
 </template>
 
 <script>
-// import HelloWorld from "./components/HelloWorld.vue";
+import Content from "./components/Content.vue";
+import SideMenu from "./components/SideMenu.vue";
+import Header from "./components/Header.vue";
+import Footer from "./components/Footer.vue";
 
 export default {
-  name: "app",
+  name: "content",
   components: {
-    // HelloWorld
+    Header,
+    SideMenu,
+    Content,
+    Footer
   }
 };
 </script>
