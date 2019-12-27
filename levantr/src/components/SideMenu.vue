@@ -7,10 +7,10 @@
       <ul class="nav navbar-nav flex-row">
         <li class="nav-item mr-auto">
           <router-link to="/">
-          <a class="navbar-brand" href="/">
-            <div class="brand-logo"></div>
-            <h2 class="brand-text mb-0">viaLevantr</h2>
-          </a>
+            <a class="navbar-brand" href="/">
+              <div class="brand-logo"></div>
+              <h2 class="brand-text mb-0">viaLevantr</h2>
+            </a>
           </router-link>
         </li>
         <li class="nav-item nav-toggle">
@@ -35,17 +35,15 @@
         data-icon-style=""
       >
         <li class=" nav-item">
-          <router-link to="/">
-          <i class="bx bx-home-alt"></i
+          <router-link to="/dashboard">
+            <i class="bx bx-home-alt"></i
             ><span class="menu-title" data-i18n="Home">Home</span>
           </router-link>
         </li>
         <li class=" nav-item">
           <router-link to="/map">
-          <i class="bx bx-globe"></i
-            ><span class="menu-title" data-i18n="Google Maps"
-              >Google Maps</span
-            >
+            <i class="bx bx-globe"></i
+            ><span class="menu-title" data-i18n="Google Maps">Google Maps</span>
           </router-link>
         </li>
       </ul>

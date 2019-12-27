@@ -1,21 +1,32 @@
 import Vue from "vue";
 import Router from "vue-router";
 import App from "./App.vue";
-import Content from "@/components/Content"
+import Map from "@/components/Map";
+import Dashboard from "@/components/Dashboard";
 
 Vue.config.productionTip = false;
 
 Vue.use(require("vue-moment"));
 Vue.use(Router);
 
-const routes = [{ path: "/", name: "Content" , component: App, children: [
+const routes = [
   {
-    // UserProfile will be rendered inside User's <router-view>
-    // when /user/:id/profile is matched
-    path: '/map',
-    component: Content
+    path: "/",
+    redirect: "/dashboard",
+    name: "App",
+    component: App,
+    children: [
+      {
+        path: "/dashboard",
+        component: Dashboard
+      },
+      {
+        path: "/map",
+        component: Map
+      }
+    ]
   }
-]}];
+];
 
 const router = new Router({
   routes // short for `routes: routes`
