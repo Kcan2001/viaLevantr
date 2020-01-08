@@ -35,7 +35,7 @@
         data-icon-style=""
       >
         <li class=" nav-item">
-          <router-link to="/dashboard">
+          <router-link to="/">
             <i class="bx bx-home-alt"></i
             ><span class="menu-title" data-i18n="Home">Home</span>
           </router-link>
@@ -44,6 +44,12 @@
           <router-link to="/map">
             <i class="bx bx-globe"></i
             ><span class="menu-title" data-i18n="Google Maps">Google Maps</span>
+          </router-link>
+        </li>
+        <li class=" nav-item">
+          <router-link to="/calendar">
+            <i class="ficon bx bx-calendar-alt"></i
+            ><span class="menu-title" data-i18n="Calendar">Calendar</span>
           </router-link>
         </li>
       </ul>

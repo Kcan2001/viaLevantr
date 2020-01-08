@@ -7,12 +7,16 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
   <title>levantr</title>
+  <link rel="shortcut icon" type="image/x-icon" href="./app-assets/images/ico/favicon.ico">
   <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,600%7CIBM+Plex+Sans:300,400,500,600,700"
     rel="stylesheet">
   <!-- BEGIN: Vendor CSS-->
-  <link rel="stylesheet" type="text/css" href="./app-assets/vendors/css/vendors.min.css" />
-  <link rel="stylesheet" type="text/css" href="./app-assets/vendors/css/charts/apexcharts.css" />
+  <link rel="stylesheet" type="text/css" href="./app-assets/vendors/css/vendors.min.css">
+  <link rel="stylesheet" type="text/css" href="./app-assets/vendors/css/charts/apexcharts.css">
   <link rel="stylesheet" type="text/css" href="./app-assets/vendors/css/extensions/dragula.min.css" />
+  <link rel="stylesheet" type="text/css" href="./app-assets/vendors/css/calendars/tui-time-picker.css">
+  <link rel="stylesheet" type="text/css" href="./app-assets/vendors/css/calendars/tui-date-picker.css">
+  <link rel="stylesheet" type="text/css" href="./app-assets/vendors/css/calendars/tui-calendar.min.css">
   <!-- END: Vendor CSS-->
 
   <!-- BEGIN: Theme CSS-->
@@ -27,6 +31,7 @@
   <!-- BEGIN: Page CSS-->
   <link rel="stylesheet" type="text/css" href="./app-assets/css/core/menu/menu-types/vertical-menu.css" />
   <link rel="stylesheet" type="text/css" href="./app-assets/css/pages/dashboard-analytics.css" />
+  <link rel="stylesheet" type="text/css" href="./app-assets/css/plugins/calendars/app-calendar.css">
   <!-- END: Page CSS-->
 
   <!-- BEGIN: Custom CSS-->
@@ -52,10 +57,16 @@
   <!-- BEGIN Vendor JS-->
 
   <!-- BEGIN: Page Vendor JS-->
-  <script src="./app-assets/vendors/js/charts/apexcharts.min.js"></script>
   <script src="./app-assets/vendors/js/extensions/dragula.min.js"></script>
   <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyBgjNW0WA93qphgZW-joXVR6VC3IiYFjfo"></script>
   <script src="./app-assets/vendors/js/charts/gmaps.min.js"></script>
+  <script src="./app-assets/vendors/js/calendar/tui-code-snippet.min.js"></script>
+  <script src="./app-assets/vendors/js/calendar/tui-dom.js"></script>
+  <script src="./app-assets/vendors/js/calendar/tui-time-picker.min.js"></script>
+  <script src="./app-assets/vendors/js/calendar/tui-date-picker.min.js"></script>
+  <script src="./app-assets/vendors/js/extensions/moment.min.js"></script>
+  <script src="./app-assets/vendors/js/calendar/chance.min.js"></script>
+  <script src="./app-assets/vendors/js/calendar/tui-calendar.min.js"></script>
   <!-- END: Page Vendor JS-->
 
   <!-- BEGIN: Theme JS-->
@@ -66,9 +77,11 @@
   <!-- END: Theme JS-->
 
   <!-- BEGIN: Page JS-->
-  <script src="./app-assets/js/scripts/pages/dashboard-analytics.js"></script>
+  <script src="./app-assets/js/scripts/extensions/calendar/calendars-data.js"></script>
+  <!-- <script src="./app-assets/js/scripts/extensions/calendar/schedules.js"></script> -->
   <script src="./app-assets/js/scripts/charts/gmaps/maps.js"></script>
   <!-- END: Page JS-->
+  
 </body>
 
 </html>
