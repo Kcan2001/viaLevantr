@@ -3,6 +3,7 @@ import Router from "vue-router";
 import App from "./App.vue";
 import Map from "@/components/Map";
 import Calendar from "@/components/Calendar";
+import Dashboard from "@/components/Dashboard";
 
 Vue.config.productionTip = false;
 
@@ -12,10 +13,14 @@ Vue.use(Router);
 const routes = [
   {
     path: "/",
-    redirect: "/calendar",
+    redirect: "/",
     name: "App",
     component: App,
     children: [
+      {
+        path: "/",
+        component: Dashboard
+      },
       {
         path: "/calendar",
         component: Calendar
