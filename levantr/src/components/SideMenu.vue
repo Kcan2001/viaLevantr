@@ -9,7 +9,7 @@
           <router-link to="/">
             <a class="navbar-brand" href="/">
               <div class="brand-logo"></div>
-              <h2 class="brand-text mb-0">viaLevantr</h2>
+              <h2 class="brand-text mb-0">Levantr</h2>
             </a>
           </router-link>
         </li>
