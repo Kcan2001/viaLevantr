@@ -4,6 +4,7 @@ import Router from 'vue-router';
 import Login from '@/components/login/Login'
 import Register from '@/components/login/Register'
 import Calendar from '@/components/Calendar'
+import Dashboard from '@/components/Dashboard'
 
 Vue.use(Router)
 
@@ -33,6 +34,14 @@ const router = new Router({
         path: '/calendar',
         name: 'Calendar',
         component: Calendar,
+        meta: { 
+            requiresAuth: true
+          }
+    },
+    {
+        path: '/dashboard',
+        name: 'Dashboard',
+        component: Dashboard,
         meta: { 
             requiresAuth: true
           }
