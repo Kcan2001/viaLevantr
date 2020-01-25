@@ -42,10 +42,10 @@
                     />
                   </span>
                 </a>
-                <div class="dropdown-menu dropdown-menu-right pb-0">
-                  <a class="dropdown-item" href="auth-login.html">
-                    <i class="bx bx-power-off mr-50" @click.prevent="signOut"></i> Logout
-                  </a>
+                <div class="dropdown-menu dropdown-menu-right pb-0" @click.prevent="signOut">
+                  <div class="dropdown-item">
+                    <i class="bx bx-power-off mr-50"></i> Logout
+                  </div>
                 </div>
               </li>
             </ul>
