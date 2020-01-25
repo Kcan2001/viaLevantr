@@ -1,6 +1,6 @@
 <template>
   <div class="app-content content">
-    <div class="content-overlay"></div>
+    <div class="content-overlay" />
     <div class="content-wrapper">
       <div class="content-header row">
         <div class="content-header-left col-12 mb-2 mt-1">
@@ -12,10 +12,14 @@
               <div class="breadcrumb-wrapper col-12">
                 <ol class="breadcrumb p-0 mb-0">
                   <li class="breadcrumb-item">
-                    <a href="index.html"><i class="bx bx-home-alt"></i></a>
+                    <a href="index.html"><i class="bx bx-home-alt" /></a>
                   </li>
-                  <li class="breadcrumb-item"><a href="#">Maps</a></li>
-                  <li class="breadcrumb-item active">Google Maps</li>
+                  <li class="breadcrumb-item">
+                    <a href="#">Maps</a>
+                  </li>
+                  <li class="breadcrumb-item active">
+                    Google Maps
+                  </li>
                 </ol>
               </div>
             </div>
@@ -30,7 +34,9 @@
             <div class="col-12">
               <div class="card">
                 <div class="card-header">
-                  <h4 class="card-title">Basic Map</h4>
+                  <h4 class="card-title">
+                    Basic Map
+                  </h4>
                 </div>
                 <div class="card-content">
                   <div class="card-body">
@@ -52,7 +58,10 @@
                       <strong>satellite</strong>, <strong>hybrid</strong> and
                       <strong>terrain</strong>.
                     </p>
-                    <div id="basic-map" class="height-400"></div>
+                    <div
+                      id="basic-map"
+                      class="height-400"
+                    />
                   </div>
                 </div>
               </div>
@@ -63,7 +72,9 @@
             <div class="col-12">
               <div class="card">
                 <div class="card-header">
-                  <h4 class="card-title">Info Window</h4>
+                  <h4 class="card-title">
+                    Info Window
+                  </h4>
                 </div>
                 <div class="card-content">
                   <div class="card-body">
@@ -71,7 +82,10 @@
                       A basic example of using a single info window for 3
                       markers.
                     </p>
-                    <div id="info-window" class="height-400"></div>
+                    <div
+                      id="info-window"
+                      class="height-400"
+                    />
                   </div>
                 </div>
               </div>
@@ -83,7 +97,9 @@
             <div class="col-12">
               <div class="card">
                 <div class="card-header">
-                  <h4 class="card-title">Street View</h4>
+                  <h4 class="card-title">
+                    Street View
+                  </h4>
                 </div>
                 <div class="card-content">
                   <div class="card-body">
@@ -93,7 +109,10 @@
                     <p class="card-text">
                       Point-of-view updates when you pan around
                     </p>
-                    <div id="street-view" class="height-400"></div>
+                    <div
+                      id="street-view"
+                      class="height-400"
+                    />
                     <button
                       type="button"
                       class="btn btn-primary street-heading mt-1 mr-1"
@@ -123,7 +142,9 @@
             <div class="col-md-6">
               <div class="card">
                 <div class="card-header">
-                  <h4 class="card-title">Bicycle Layer</h4>
+                  <h4 class="card-title">
+                    Bicycle Layer
+                  </h4>
                 </div>
                 <div class="card-content">
                   <div class="card-body">
@@ -137,7 +158,10 @@
                       bike paths, suggested bike routes and other overlays
                       specific to bicycling usage on top of the given map
                     </p>
-                    <div id="bicycle-map" class="height-400"></div>
+                    <div
+                      id="bicycle-map"
+                      class="height-400"
+                    />
                   </div>
                 </div>
               </div>
@@ -146,7 +170,9 @@
             <div class="col-md-6">
               <div class="card">
                 <div class="card-header">
-                  <h4 class="card-title">Traffic Layer</h4>
+                  <h4 class="card-title">
+                    Traffic Layer
+                  </h4>
                 </div>
                 <div class="card-content">
                   <div class="card-body">
@@ -160,7 +186,10 @@
                       instantly. Rapid consecutive requests for the same area
                       are unlikely to yield different results.
                     </p>
-                    <div id="transit-map" class="height-400"></div>
+                    <div
+                      id="transit-map"
+                      class="height-400"
+                    />
                   </div>
                 </div>
               </div>

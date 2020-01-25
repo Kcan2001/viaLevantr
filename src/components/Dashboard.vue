@@ -1,14 +1,16 @@
 <template>
   <div class="app-content content">
-    <div class="content-overlay"></div>
+    <div class="content-overlay" />
     <div class="content-wrapper">
-      <div class="content-header row"></div>
+      <div class="content-header row" />
       <div class="content-body">
         <!-- Decks section start -->
         <section id="decks">
           <div class="row match-height">
             <div class="col-12 mt-3 mb-1">
-              <h4 class="text-uppercase">Adventure</h4>
+              <h4 class="text-uppercase">
+                Adventure
+              </h4>
             </div>
           </div>
           <div class="row match-height">
@@ -23,9 +25,11 @@
                             class="card-img-top img-fluid"
                             src="@/app-assets/images/slider/adventure_1.jpg"
                             alt="Card image cap"
-                          />
+                          >
                           <div class="card-body">
-                            <h4 class="card-title">Card title</h4>
+                            <h4 class="card-title">
+                              Card title
+                            </h4>
                             <p class="card-text">
                               This card has supporting text below as a natural lead-in to
                               additional content.
@@ -42,9 +46,11 @@
                             class="card-img-top img-fluid"
                             src="@/app-assets/images/slider/adventure_2.jpg"
                             alt="Card image cap"
-                          />
+                          >
                           <div class="card-body">
-                            <h4 class="card-title">Card title</h4>
+                            <h4 class="card-title">
+                              Card title
+                            </h4>
                             <p class="card-text">
                               This card has supporting text below as a natural lead-in to
                               additional content.
@@ -61,9 +67,11 @@
                             class="card-img-top img-fluid"
                             src="@/app-assets/images/slider/adventure_3.jpg"
                             alt="Card image cap"
-                          />
+                          >
                           <div class="card-body">
-                            <h4 class="card-title">Card title</h4>
+                            <h4 class="card-title">
+                              Card title
+                            </h4>
                             <p class="card-text">
                               This card has supporting text below as a natural lead-in to
                               additional content.
@@ -80,9 +88,11 @@
                             class="card-img-top img-fluid"
                             src="@/app-assets/images/slider/adventure_4.jpg"
                             alt="Card image cap"
-                          />
+                          >
                           <div class="card-body">
-                            <h4 class="card-title">Card title</h4>
+                            <h4 class="card-title">
+                              Card title
+                            </h4>
                             <p class="card-text">
                               This card has supporting text below as a natural lead-in to
                               additional content.
@@ -102,7 +112,9 @@
         <section id="decks">
           <div class="row match-height">
             <div class="col-12 mt-3 mb-1">
-              <h4 class="text-uppercase">Dining</h4>
+              <h4 class="text-uppercase">
+                Dining
+              </h4>
             </div>
           </div>
           <div class="row match-height">
@@ -117,9 +129,11 @@
                             class="card-img-top img-fluid"
                             src="@/app-assets/images/slider/dining_1.jpg"
                             alt="Card image cap"
-                          />
+                          >
                           <div class="card-body">
-                            <h4 class="card-title">Card title</h4>
+                            <h4 class="card-title">
+                              Card title
+                            </h4>
                             <p class="card-text">
                               This card has supporting text below as a natural lead-in to
                               additional content.
@@ -136,9 +150,11 @@
                             class="card-img-top img-fluid"
                             src="@/app-assets/images/slider/dining_2.jpg"
                             alt="Card image cap"
-                          />
+                          >
                           <div class="card-body">
-                            <h4 class="card-title">Card title</h4>
+                            <h4 class="card-title">
+                              Card title
+                            </h4>
                             <p class="card-text">
                               This card has supporting text below as a natural lead-in to
                               additional content.
@@ -155,9 +171,11 @@
                             class="card-img-top img-fluid"
                             src="@/app-assets/images/slider/dining_3.jpg"
                             alt="Card image cap"
-                          />
+                          >
                           <div class="card-body">
-                            <h4 class="card-title">Card title</h4>
+                            <h4 class="card-title">
+                              Card title
+                            </h4>
                             <p class="card-text">
                               This card has supporting text below as a natural lead-in to
                               additional content.
@@ -174,9 +192,11 @@
                             class="card-img-top img-fluid"
                             src="@/app-assets/images/slider/dining_4.jpg"
                             alt="Card image cap"
-                          />
+                          >
                           <div class="card-body">
-                            <h4 class="card-title">Card title</h4>
+                            <h4 class="card-title">
+                              Card title
+                            </h4>
                             <p class="card-text">
                               This card has supporting text below as a natural lead-in to
                               additional content.

@@ -7,49 +7,58 @@
       <ul class="nav navbar-nav flex-row">
         <li class="nav-item mr-auto">
           <router-link to="/">
-            <a class="navbar-brand" href="/">
-              <div class="brand-logo"></div>
+            <a
+              class="navbar-brand"
+              href="/"
+            >
+              <div class="brand-logo" />
               <h2 class="brand-text mb-0">Levantr</h2>
             </a>
           </router-link>
         </li>
         <li class="nav-item nav-toggle">
-          <a class="nav-link modern-nav-toggle pr-0" data-toggle="collapse"
-            ><i
-              class="bx bx-x d-block d-xl-none font-medium-4 primary toggle-icon"
-            ></i
-            ><i
-              class="toggle-icon bx bx-disc font-medium-4 d-none d-xl-block collapse-toggle-icon primary"
-              data-ticon="bx-disc"
-            ></i
-          ></a>
+          <a
+            class="nav-link modern-nav-toggle pr-0"
+            data-toggle="collapse"
+          ><i
+            class="bx bx-x d-block d-xl-none font-medium-4 primary toggle-icon"
+          /><i
+            class="toggle-icon bx bx-disc font-medium-4 d-none d-xl-block collapse-toggle-icon primary"
+            data-ticon="bx-disc"
+          /></a>
         </li>
       </ul>
     </div>
-    <div class="shadow-bottom"></div>
+    <div class="shadow-bottom" />
     <div class="main-menu-content">
       <ul
-        class="navigation navigation-main"
         id="main-menu-navigation"
+        class="navigation navigation-main"
         data-menu="menu-navigation"
         data-icon-style=""
       >
         <li class=" nav-item">
           <router-link to="/">
-            <i class="bx bx-home-alt"></i
-            ><span class="menu-title" data-i18n="Home">Home</span>
+            <i class="bx bx-home-alt" /><span
+              class="menu-title"
+              data-i18n="Home"
+            >Home</span>
           </router-link>
         </li>
         <li class=" nav-item">
           <router-link to="/map">
-            <i class="bx bx-globe"></i
-            ><span class="menu-title" data-i18n="Google Maps">Google Maps</span>
+            <i class="bx bx-globe" /><span
+              class="menu-title"
+              data-i18n="Google Maps"
+            >Google Maps</span>
           </router-link>
         </li>
         <li class=" nav-item">
           <router-link to="/calendar">
-            <i class="ficon bx bx-calendar-alt"></i
-            ><span class="menu-title" data-i18n="Calendar">Calendar</span>
+            <i class="ficon bx bx-calendar-alt" /><span
+              class="menu-title"
+              data-i18n="Calendar"
+            >Calendar</span>
           </router-link>
         </li>
       </ul>
@@ -59,7 +68,7 @@
 
 <script>
 export default {
-  name: "sideMenu"
+  name: "SideMenu"
 };
 </script>
 
