@@ -141,6 +141,24 @@
           </div>
         </section>
         <!-- login page ends -->
+                  <button
+                    type="submit"
+                    class="btn btn-primary"
+                  >
+                    Login
+                  </button>
+                </div>
+              </div>
+            </form>
+
+              <router-link
+                to="register"
+                class="nav-link"
+              >
+                Register
+              </router-link>
+          </div>
+        </div>
       </div>
     </div>
   </div>
