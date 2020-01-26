@@ -110,7 +110,7 @@
                         </form>
                         <hr>
                         <div class="text-center">
-                          <small class="mr-25">Already have an account?</small><a href="auth-login.html"><small>Sign in</small> </a>
+                          <small class="mr-25">Already have an account?</small><a href="/login"><small>Sign in</small> </a>
                         </div>
                       </div>
                     </div>
