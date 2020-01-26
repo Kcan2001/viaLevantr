@@ -38,7 +38,7 @@
         data-icon-style=""
       >
         <li class=" nav-item">
-          <router-link to="/">
+          <router-link to="/dashboard">
             <i class="bx bx-home-alt" /><span
               class="menu-title"
               data-i18n="Home"
@@ -67,8 +67,15 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
-  name: "SideMenu"
+  name: "SideMenu",
+  computed: {
+    ...mapGetters({
+    // map `this.user` to `this.$store.getters.user`
+      user: "user"
+    })
+  }
 };
 </script>
 

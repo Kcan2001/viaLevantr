@@ -41,7 +41,7 @@
                   <span>
                     <img
                       class="round"
-                      src="../../public/app-assets/images/portrait/small/avatar-s-11.jpg"
+                      src="../../../public/app-assets/images/portrait/small/avatar-s-11.jpg"
                       alt="avatar"
                       height="40"
                       width="40"
@@ -91,4 +91,5 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+</style>
