@@ -46,7 +46,15 @@ const router = new Router({
         // =============================================================================
         {
           path: '/',
-          redirect: '/dashboard/analytics'
+          redirect: '/crew'
+        },
+        {
+          path: '/crew',
+          name: 'crew',
+          component: () => import('./views/pages/Crew.vue'),
+          meta: {
+            rule: 'admin'
+          }
         },
         {
           path: '/dashboard/analytics',
@@ -64,7 +72,6 @@ const router = new Router({
             rule: 'admin'
           }
         },
-
 
         // =============================================================================
         // Application Routes
