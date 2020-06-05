@@ -10,16 +10,16 @@
 import axios from '@/axios.js'
 
 export default {
-  // addItem({ commit }, item) {
-  //   return new Promise((resolve, reject) => {
-  //     axios.post("/api/data-list/products/", {item: item})
-  //       .then((response) => {
-  //         commit('ADD_ITEM', Object.assign(item, {id: response.data.id}))
-  //         resolve(response)
-  //       })
-  //       .catch((error) => { reject(error) })
-  //   })
-  // },
+  addItem({ commit }, item) {
+    return new Promise((resolve, reject) => {
+      axios.post("/api/data-list/products/", {item: item})
+        .then((response) => {
+          commit('ADD_ITEM', Object.assign(item, {id: response.data.id}))
+          resolve(response)
+        })
+        .catch((error) => { reject(error) })
+    })
+  },
   fetchUsers ({ commit }) {
     return new Promise((resolve, reject) => {
       axios.get('/api/user-management/users')

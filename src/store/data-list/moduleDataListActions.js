@@ -11,6 +11,7 @@ import axios from '@/axios.js'
 
 export default {
   addItem ({ commit }, item) {
+    console.log('HERE')
     return new Promise((resolve, reject) => {
       axios.post('/api/data-list/products/', {item})
         .then((response) => {

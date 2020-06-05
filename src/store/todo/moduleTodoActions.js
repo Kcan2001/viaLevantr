@@ -10,12 +10,12 @@
 import axios from '@/axios.js'
 
 export default {
-  setTodoSearchQuery ({ commit }, query) {
-    commit('SET_TODO_SEARCH_QUERY', query)
-  },
+  // setTodoSearchQuery ({ commit }, query) {
+  //   commit('SET_TODO_SEARCH_QUERY', query)
+  // },
   fetchTasks ({ commit }, payload) {
     return new Promise((resolve, reject) => {
-      axios.get('/api/apps/todo/tasks', { params: {filter: payload.filter} })
+      axios.get('levantr-db-do-user-1332317-0.a.db.ondigitalocean.com/api/', { params: payload })
         .then((response) => {
           commit('SET_TASKS', response.data)
           resolve(response)
@@ -24,20 +24,20 @@ export default {
     })
   },
 
-  fetchTags ({ commit }) {
-    return new Promise((resolve, reject) => {
-      axios.get('/api/apps/todo/tags')
-        .then((response) => {
-          commit('SET_TAGS', response.data)
-          resolve(response)
-        })
-        .catch((error) => { reject(error) })
-    })
-  },
+  // fetchTags ({ commit }) {
+  //   return new Promise((resolve, reject) => {
+  //     axios.get('/api/apps/todo/tags')
+  //       .then((response) => {
+  //         commit('SET_TAGS', response.data)
+  //         resolve(response)
+  //       })
+  //       .catch((error) => { reject(error) })
+  //   })
+  // },
 
   addTask ({ commit }, task) {
     return new Promise((resolve, reject) => {
-      axios.post('/api/apps/todo/tasks/', {task})
+      axios.post('levantr-db-do-user-1332317-0.a.db.ondigitalocean.com/api/', {task})
         .then((response) => {
           commit('ADD_TASK', Object.assign(task, {id: response.data.id}))
           resolve(response)

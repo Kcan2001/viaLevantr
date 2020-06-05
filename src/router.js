@@ -46,7 +46,7 @@ const router = new Router({
         // =============================================================================
         {
           path: '/',
-          redirect: '/crew'
+          redirect: '/apps/todo/all'
         },
         {
           path: '/crew',

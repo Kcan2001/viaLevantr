@@ -18,7 +18,7 @@ import actions from './actions'
 
 Vue.use(Vuex)
 
-// import moduleTodo from './todo/moduleTodo.js'
+import moduleTodo from './todo/moduleTodo.js'
 // import moduleCalendar from './calendar/moduleCalendar.js'
 // import moduleChat from './chat/moduleChat.js'
 // import moduleEmail from './email/moduleEmail.js'
@@ -32,7 +32,7 @@ export default new Vuex.Store({
   state,
   actions,
   modules: {
-    // todo: moduleTodo,
+    todo: moduleTodo,
     // calendar: moduleCalendar,
     // chat: moduleChat,
     // email: moduleEmail,

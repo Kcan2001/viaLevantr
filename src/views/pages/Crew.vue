@@ -12,17 +12,17 @@
     <div class="vx-row">
       <!-- CARD 9: DISPATCHED ORDERS -->
       <div class="vx-col w-full">
-        <vx-card title="Dispatched Orders">
+        <vx-card :title=title>
           <div slot="no-body" class="mt-4">
             <vs-table :data="dispatchedOrders" class="table-dark-inverted">
               <template slot="thead">
-                <vs-th>ORDER NO.</vs-th>
+                <vs-th>NAME</vs-th>
                 <vs-th>STATUS</vs-th>
-                <vs-th>OPERATORS</vs-th>
+                <vs-th>MEMBERS</vs-th>
                 <vs-th>LOCATION</vs-th>
                 <vs-th>DISTANCE</vs-th>
                 <vs-th>START DATE</vs-th>
-                <vs-th>EST DELIVERY DATE</vs-th>
+                <vs-th>END DATE</vs-th>
               </template>
 
               <template slot-scope="{data}">
@@ -77,54 +77,15 @@ import VxTimeline from '@/components/timeline/VxTimeline'
 export default {
   data () {
     return {
-      checkpointReward: {},
-      subscribersGained: {},
-      ordersRecevied: {},
-      salesBarSession: {},
-      supportTracker: {},
-      productsOrder: {},
-      salesRadar: {},
-
-      timelineData: [
-        {
-          color: 'primary',
-          icon: 'PlusIcon',
-          title: 'Client Meeting',
-          desc: 'Bonbon macaroon jelly beans gummi bears jelly lollipop apple',
-          time: '25 mins Ago'
-        },
-        {
-          color: 'warning',
-          icon: 'MailIcon',
-          title: 'Email Newsletter',
-          desc: 'Cupcake gummi bears soufflé caramels candy',
-          time: '15 Days Ago'
-        },
-        {
-          color: 'danger',
-          icon: 'UsersIcon',
-          title: 'Plan Webinar',
-          desc: 'Candy ice cream cake. Halvah gummi bears',
-          time: '20 days ago'
-        },
-        {
-          color: 'success',
-          icon: 'LayoutIcon',
-          title: 'Launch Website',
-          desc: 'Candy ice cream cake. Halvah gummi bears Cupcake gummi bears soufflé caramels candy.',
-          time: '25 days ago'
-        },
-        {
-          color: 'primary',
-          icon: 'TvIcon',
-          title: 'Marketing',
-          desc: 'Candy ice cream cake. Halvah gummi bears Cupcake gummi bears.',
-          time: '28 days ago'
-        }
-      ],
-
-
-      analyticsData,
+      title: 'Party Crew',
+      // checkpointReward: {},
+      // subscribersGained: {},
+      // ordersRecevied: {},
+      // salesBarSession: {},
+      // supportTracker: {},
+      // productsOrder: {},
+      // salesRadar: {},
+      // analyticsData,
       dispatchedOrders: []
     }
   },
