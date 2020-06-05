@@ -15,7 +15,7 @@ export default {
   // },
   fetchTasks ({ commit }, payload) {
     return new Promise((resolve, reject) => {
-      axios.get('levantr-db-do-user-1332317-0.a.db.ondigitalocean.com/api/', { params: payload })
+      axios.get('levantr-db-do-user-1332317-0.a.db.ondigitalocean.com/event/', { params: payload })
         .then((response) => {
           commit('SET_TASKS', response.data)
           resolve(response)
@@ -37,7 +37,7 @@ export default {
 
   addTask ({ commit }, task) {
     return new Promise((resolve, reject) => {
-      axios.post('levantr-db-do-user-1332317-0.a.db.ondigitalocean.com/api/', {task})
+      axios.post('levantr-db-do-user-1332317-0.a.db.ondigitalocean.com/event/', {task})
         .then((response) => {
           commit('ADD_TASK', Object.assign(task, {id: response.data.id}))
           resolve(response)
