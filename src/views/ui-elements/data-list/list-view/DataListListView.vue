@@ -147,7 +147,7 @@ export default {
   data () {
     return {
       selected: [],
-      // products: [],
+      products: [],
       itemsPerPage: 4,
       isMounted: false,
 

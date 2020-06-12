@@ -46,14 +46,19 @@ const router = new Router({
         // =============================================================================
         {
           path: '/',
-          redirect: '/apps/todo/all'
+          redirect: '/apps/todo/all',
+          meta: {
+            // rule: 'admin',
+            authRequired: true
+          }
         },
         {
           path: '/crew',
           name: 'crew',
           component: () => import('./views/pages/Crew.vue'),
           meta: {
-            rule: 'admin'
+            // rule: 'admin',
+            authRequired: true
           }
         },
         {
@@ -61,7 +66,8 @@ const router = new Router({
           name: 'dashboard-analytics',
           component: () => import('./views/DashboardAnalytics.vue'),
           meta: {
-            rule: 'editor'
+            // rule: 'editor',
+            authRequired: true
           }
         },
         {
@@ -69,7 +75,8 @@ const router = new Router({
           name: 'dashboard-ecommerce',
           component: () => import('./views/DashboardECommerce.vue'),
           meta: {
-            rule: 'admin'
+            // rule: 'admin',
+            authRequired: true
           }
         },
 
@@ -79,7 +86,10 @@ const router = new Router({
         {
           path: '/apps/todo',
           redirect: '/apps/todo/all',
-          name: 'todo'
+          name: 'todo',
+          meta: {
+            authRequired: true
+          }
         },
         {
           path: '/apps/todo/:filter',
@@ -87,6 +97,7 @@ const router = new Router({
           meta: {
             rule: 'editor',
             parent: 'todo',
+            authRequired: true,
             no_scroll: true
           }
         },
@@ -110,6 +121,7 @@ const router = new Router({
           meta: {
             rule: 'editor',
             parent: 'email',
+            authRequired: true,
             no_scroll: true
           }
         },
@@ -189,6 +201,7 @@ const router = new Router({
               { title: 'Item Details', active: true }
             ],
             parent: 'ecommerce-item-detail-view',
+            authRequired: true,
             pageTitle: 'Item Details',
             rule: 'editor'
           }
@@ -950,6 +963,7 @@ const router = new Router({
               { title: 'Category', active: true }
             ],
             parent: 'page-knowledge-base',
+            authRequired: true,
             rule: 'editor'
           }
         },
@@ -966,6 +980,7 @@ const router = new Router({
               { title: 'Question', active: true }
             ],
             parent: 'page-knowledge-base',
+            authRequired: true,
             rule: 'editor'
           }
         },
@@ -1413,19 +1428,20 @@ router.beforeEach((to, from, next) => {
     // get firebase current user
     const firebaseCurrentUser = firebase.auth().currentUser
 
-    if (
-      to.path === '/' ||
-      to.path === '/pages/login' ||
-        to.path === '/pages/forgot-password' ||
-        to.path === '/pages/error-404' ||
-        to.path === '/pages/error-500' ||
-        to.path === '/pages/register' ||
-        to.path === '/callback' ||
-        to.path === '/pages/comingsoon' ||
-        (auth.isAuthenticated() || firebaseCurrentUser)
-    ) {
-      return next()
-    }
+    // if (
+    //   to.path === '/',
+    //   to.path === '/apps/todo/all' ||
+    //   to.path === '/pages/login' ||
+    //     to.path === '/pages/forgot-password' ||
+    //     to.path === '/pages/error-404' ||
+    //     to.path === '/pages/error-500' ||
+    //     to.path === '/pages/register' ||
+    //     to.path === '/callback' ||
+    //     to.path === '/pages/comingsoon' ||
+    //     (auth.isAuthenticated() || firebaseCurrentUser)
+    // ) {
+    //   return next()
+    // }
 
     // If auth required, check login. If login fails redirect to login page
     if (to.meta.authRequired) {
@@ -1437,7 +1453,7 @@ router.beforeEach((to, from, next) => {
     return next()
     // Specify the current path as the customState parameter, meaning it
     // will be returned to the application after auth
-    // auth.login({ target: to.path });
+    // auth.login({ target: '/pages/login' });
 
   })
 

@@ -144,7 +144,7 @@ export default {
 #dashboard-analytics {
   .greet-user{
     position: relative;
-
+ 
     .decore-left{
       position: absolute;
       left:0;
@@ -159,7 +159,7 @@ export default {
 
   @media(max-width: 576px) {
     .decore-left, .decore-right{
-      width: 140px;
+      width: 140px; 
     }
   }
 }

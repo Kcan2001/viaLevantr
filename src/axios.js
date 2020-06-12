@@ -1,10 +1,11 @@
 // axios
 import axios from 'axios'
 
-// const baseURL = 'levantr-db-do-user-1332317-0.a.db.ondigitalocean.com'
+const baseURL = 'levantr-db-do-user-1332317-0.a.db.ondigitalocean.com'
 
 export default axios.create({
-  baseURL: 'http://localhost:8080/',
+  // baseURL: 'http://localhost:8080/',
+  baseURL,
   timeout: 1000,
   headers: {'X-Requested-With': 'XMLHttpRequest'},
   auth: {

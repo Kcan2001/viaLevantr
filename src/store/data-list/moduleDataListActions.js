@@ -11,7 +11,6 @@ import axios from '@/axios.js'
 
 export default {
   addItem ({ commit }, item) {
-    console.log('HERE')
     return new Promise((resolve, reject) => {
       axios.post('/api/data-list/products/', {item})
         .then((response) => {
@@ -22,6 +21,7 @@ export default {
     })
   },
   fetchDataListItems ({ commit }) {
+    console.log('HERE ', commit)
     return new Promise((resolve, reject) => {
       axios.get('/api/data-list/products')
         .then((response) => {
@@ -31,16 +31,16 @@ export default {
         .catch((error) => { reject(error) })
     })
   },
-  // fetchEventLabels({ commit }) {
-  //   return new Promise((resolve, reject) => {
-  //     axios.get("/api/apps/calendar/labels")
-  //       .then((response) => {
-  //         commit('SET_LABELS', response.data)
-  //         resolve(response)
-  //       })
-  //       .catch((error) => { reject(error) })
-  //   })
-  // },
+  fetchEventLabels({ commit }) {
+    return new Promise((resolve, reject) => {
+      axios.get("/api/apps/calendar/labels")
+        .then((response) => {
+          commit('SET_LABELS', response.data)
+          resolve(response)
+        })
+        .catch((error) => { reject(error) })
+    })
+  },
   updateItem ({ commit }, item) {
     return new Promise((resolve, reject) => {
       axios.post(`/api/data-list/products/${item.id}`, {item})
