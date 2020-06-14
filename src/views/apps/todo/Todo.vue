@@ -39,8 +39,7 @@
                       v-for="(task, index) in taskList"
                       :key="String(currFilter) + String(task.id)"
                       :style="[{transitionDelay: (index * 0.1) + 's'}]">
-
-                      <todo-task :taskId="task.id" @showDisplayPrompt="showDisplayPrompt($event)" :key="String(task.title) + String(task.desc)" />
+                      <!-- <todo-task :taskId="task.id" @showDisplayPrompt="showDisplayPrompt($event)" :key="String(task.title) + String(task.desc)" /> -->
                         <!--
                         Note: Remove "todo-task" component's key just concat lastUpdated field in li key list.
                         e.g. <li class="..." v-for="..." :key="String(currFilter) + String(task.id) + String(task.lastUpdated)" .. >
@@ -98,7 +97,7 @@ export default {
   computed: {
     todo ()         { return this.$store.state.todo.todoArray              },
     todoFilter ()   { return this.$route.params.filter                     },
-    taskList ()     { return this.$store.getters['todo/queriedTasks']      },
+    taskList ()     { return [this.$store.getters['todo/queriedTasks']]    },
     searchQuery:   {
       get ()        { return this.$store.state.todo.todoSearchQuery        },
       set (val)     { this.$store.dispatch('todo/setTodoSearchQuery', val) }
@@ -131,7 +130,7 @@ export default {
     TodoTask,
     TodoFilters,
     TodoEdit,
-    VuePerfectScrollbar
+    VuePerfectScrollbar,
   },
   created () {
     this.$store.registerModule('todo', moduleTodo)

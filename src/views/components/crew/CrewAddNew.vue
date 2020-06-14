@@ -10,13 +10,13 @@
 
 <template>
   <div class="px-6 pb-2 pt-6">
-    <vs-button @click="activePrompt = true" class="w-full">Add Task</vs-button>
+    <vs-button @click="activePrompt = true" class="w-full">Create Crew</vs-button>
     <vs-prompt
-      title="Add Task"
-      accept-text="Add Task"
+      title="Create Your Crew"
+      accept-text="Create Crew"
       button-cancel="border"
       @cancel="clearFields"
-      @accept="addTodo"
+      @accept="createCrew"
       @close="clearFields"
       :is-valid="validateForm"
       :active.sync="activePrompt"
@@ -25,30 +25,7 @@
         <form>
           <div class="vx-row">
             <div class="vx-col ml-auto flex">
-              <feather-icon
-                icon="InfoIcon"
-                class="cursor-pointer"
-                :svgClasses="[{'text-success stroke-current': taskLocal.isImportant}, 'w-5', 'h-5 mr-4']"
-                @click.prevent="taskLocal.isImportant = !taskLocal.isImportant"
-              ></feather-icon>
-
-              <feather-icon
-                icon="StarIcon"
-                class="cursor-pointer"
-                :svgClasses="[{'text-warning stroke-current': taskLocal.isStarred}, 'w-5', 'h-5 mr-4']"
-                @click.prevent="taskLocal.isStarred = !taskLocal.isStarred"
-              ></feather-icon>
-
-              <vs-dropdown class="cursor-pointer flex" vs-custom-content>
-                <feather-icon icon="TagIcon" svgClasses="h-5 w-5" @click.prevent></feather-icon>
-                <!-- <vs-button radius color="success" type="flat" iconPack="feather" icon="icon-tag" @click.prevent></vs-button> -->
-
-                <vs-dropdown-menu style="z-index: 200001">
-                  <vs-dropdown-item @click.stop v-for="(tag, index) in taskTags" :key="index">
-                    <vs-checkbox :vs-value="tag.value" v-model="taskLocal.tags">{{ tag.text }}</vs-checkbox>
-                  </vs-dropdown-item>
-                </vs-dropdown-menu>
-              </vs-dropdown>
+  
             </div>
           </div>
 
@@ -108,7 +85,7 @@ export default {
         tags: []
       });
     },
-    addTodo() {
+    createCrew() {
       this.$validator.validateAll().then(result => {
         if (result) {
           this.$store.dispatch('todo/addTask', Object.assign({}, this.taskLocal))

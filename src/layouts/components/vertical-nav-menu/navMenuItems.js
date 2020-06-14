@@ -40,14 +40,14 @@ export default [
     name: 'Idea Board',
     slug: 'idea-board',
     icon: 'GridIcon',
-    i18n: 'Idea Board'
+    i18n: 'IdeaBoard'
   },
   {
     url: '/dashboard/analytics',
     name: 'Just in case',
     slug: 'idea-board',
     icon: 'GridIcon',
-    i18n: 'Just in Case'
+    i18n: 'JustInCase'
   }  
   // {
   //   header: 'Apps',

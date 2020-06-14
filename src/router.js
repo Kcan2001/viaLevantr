@@ -46,7 +46,7 @@ const router = new Router({
         // =============================================================================
         {
           path: '/',
-          redirect: '/apps/todo/all',
+          redirect: '/crew',
           meta: {
             // rule: 'admin',
             authRequired: true
@@ -55,9 +55,9 @@ const router = new Router({
         {
           path: '/crew',
           name: 'crew',
-          component: () => import('./views/pages/Crew.vue'),
+          component: () => import('./views/components/crew/Crew.vue'),
           meta: {
-            // rule: 'admin',
+            rule: 'admin',
             authRequired: true
           }
         },
