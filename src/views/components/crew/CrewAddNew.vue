@@ -24,9 +24,7 @@
       <div>
         <form>
           <div class="vx-row">
-            <div class="vx-col ml-auto flex">
-  
-            </div>
+            <div class="vx-col ml-auto flex"></div>
           </div>
 
           <div class="vx-row">
@@ -40,6 +38,18 @@
                 :color="validateForm ? 'success' : 'danger'"
               />
               <vs-textarea rows="5" label="Add description" v-model="taskLocal.desc" />
+
+              <vs-input
+                v-validate="'email'"
+                label="Must be a valid email"
+                name="email"
+                v-model="email"
+                class="mt-5 w-full"
+              />
+              <span
+                class="text-danger text-sm"
+                v-show="errors.has('email')"
+              >{{ errors.first('email') }}</span>
             </div>
           </div>
         </form>
@@ -56,14 +66,36 @@ export default {
     return {
       activePrompt: false,
       taskLocal: {
-        title: "",
-        desc: "",
-        isCompleted: false,
-        isImportant: false,
-        isStarred: false,
-        tags: [],
-        user: firebase.auth().currentUser.email
-      }
+        orderNo: 879985,
+        status: "Moving",
+        statusColor: "success",
+        operator: "Cinar Knowles",
+        operatorImg: require("@/assets/images/portrait/small/avatar-s-2.jpg"),
+        usersLiked: [
+          {
+            name: "Vennie Mostowy",
+            img: require("@/assets/images/portrait/small/avatar-s-5.jpg")
+          },
+          {
+            name: "Elicia Rieske",
+            img: require("@/assets/images/portrait/small/avatar-s-7.jpg")
+          },
+          {
+            name: "Julee Rossignol",
+            img: require("@/assets/images/portrait/small/avatar-s-10.jpg")
+          },
+          {
+            name: "Darcey Nooner",
+            img: require("@/assets/images/portrait/small/avatar-s-8.jpg")
+          }
+        ],
+        location: "Anniston, Alabama",
+        distance: "130 km",
+        distPercent: 80,
+        startDate: "26/07/2018",
+        estDelDate: "28/07/2018"
+      },
+      email: ""
     };
   },
   computed: {
@@ -88,8 +120,11 @@ export default {
     createCrew() {
       this.$validator.validateAll().then(result => {
         if (result) {
-          this.$store.dispatch('todo/addTask', Object.assign({}, this.taskLocal))
-          this.clearFields()
+          this.$store.dispatch(
+            "crew/addTask",
+            Object.assign({}, this.taskLocal)
+          );
+          this.clearFields();
         }
       });
     }

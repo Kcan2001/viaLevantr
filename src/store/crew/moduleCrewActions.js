@@ -14,28 +14,12 @@ export default {
   setTodoSearchQuery ({ commit }, query) {
     commit('SET_TODO_SEARCH_QUERY', query)
   },
-  fetchTasks({ commit }, payload) {
+  fetchCrews({ commit }) {
     return new Promise((resolve, reject) => {
       fb.crewCollection.doc('crew_name').get()
         .then(response => {
-          // console.log('here payload', payload)
-          console.log('here response', response.data())
           commit("SET_TASKS", response.data());
           resolve(response.data());
-        })
-        .catch(error => {
-          reject(error);
-        });
-    });
-  },
-
-  fetchTags({ commit }) {
-    return new Promise((resolve, reject) => {
-      axios
-        .get("/api/apps/todo/tags")
-        .then(response => {
-          commit("SET_TAGS", response.data);
-          resolve(response);
         })
         .catch(error => {
           reject(error);

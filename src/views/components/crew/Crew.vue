@@ -1,12 +1,12 @@
 <template>
   <div id="dashboard-analytics">
     <div class="vx-row">
-      <crew-add-new />
       <!-- CARD 9: DISPATCHED ORDERS -->
       <div class="vx-col w-full">
+        <crew-add-new />
         <vx-card :title="title">
           <div slot="no-body" class="mt-4">
-            <vs-table :data="dispatchedOrders" class="table-dark-inverted">
+            <vs-table :data="getCrews" class="table-dark-inverted">
               <template slot="thead">
                 <vs-th>NAME</vs-th>
                 <vs-th>STATUS</vs-th>
@@ -71,41 +71,40 @@
 </template>
 
 <script>
-import VueApexCharts from "vue-apexcharts";
-import StatisticsCardLine from "@/components/statistics-cards/StatisticsCardLine.vue";
-// import analyticsData from "../ui-elements/card/analyticsData.js";
-// import ChangeTimeDurationDropdown from "@/components/ChangeTimeDurationDropdown.vue";
-import VxTimeline from "@/components/timeline/VxTimeline";
+import moduleCrew from "@/store/crew/moduleCrew.js";
 import CrewAddNew from "./CrewAddNew";
+import { mapGetters } from "vuex";
 
 export default {
   data() {
     return {
-      title: "Party Crew",
-      // checkpointReward: {},
-      // subscribersGained: {},
-      // ordersRecevied: {},
-      // salesBarSession: {},
-      // supportTracker: {},
-      // productsOrder: {},
-      // salesRadar: {},
-      // analyticsData,
+      title: "Crews",
       dispatchedOrders: []
     };
+  },
+  created() {
+    // Dispatched Orders
+    // this.$http
+    //   .get("/api/table/dispatched-orders")
+    //   .then(response => {
+    //     this.dispatchedOrders = response.data;
+    //   })
+    //   .catch(error => {
+    //     console.log(error);
+    //   });
+
+    this.$store.registerModule("crew", moduleCrew);
+
+    // Fetch Tasks
+    this.$store.dispatch("crew/fetchCrews");
   },
   components: {
     CrewAddNew
   },
-  created() { 
-    // Dispatched Orders
-    this.$http
-      .get("/api/table/dispatched-orders")
-      .then(response => {
-        this.dispatchedOrders = response.data;
-      })
-      .catch(error => {
-        console.log(error);
-      });
+  computed: {
+    getCrews() {
+      return this.$store.getters["crew/getCrews"];
+    }
   }
 };
 </script>
