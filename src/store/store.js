@@ -20,7 +20,7 @@ Vue.use(Vuex)
 
 import moduleTodo from './todo/moduleTodo.js'
 import moduleCrew from './crew/moduleCrew.js'
-// import moduleCalendar from './calendar/moduleCalendar.js'
+import moduleIdeaBoard from './idea-board/moduleIdeaBoard.js'
 // import moduleChat from './chat/moduleChat.js'
 // import moduleEmail from './email/moduleEmail.js'
 import moduleAuth from './auth/moduleAuth.js'
@@ -35,6 +35,7 @@ export default new Vuex.Store({
   modules: {
     todo: moduleTodo,
     crew: moduleCrew,
+    ideaBoard: moduleIdeaBoard,
     // calendar: moduleCalendar,
     // chat: moduleChat,
     // email: moduleEmail,

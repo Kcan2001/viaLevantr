@@ -18,7 +18,6 @@ export default {
 
   // API
   SET_TASKS (state, tasks) {
-    console.log('HERE SET_TASKS', tasks)
     state.tasks = tasks
   },
   SET_TAGS (state, tags) {

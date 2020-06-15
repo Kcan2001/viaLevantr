@@ -62,6 +62,15 @@ const router = new Router({
           }
         },
         {
+          path: '/idea-board',
+          name: 'idea-board',
+          component: () => import('./views/components/idea-board/IdeaBoard.vue'),
+          meta: {
+            rule: 'admin',
+            authRequired: true
+          }
+        },
+        {
           path: '/dashboard/analytics',
           name: 'dashboard-analytics',
           component: () => import('./views/DashboardAnalytics.vue'),

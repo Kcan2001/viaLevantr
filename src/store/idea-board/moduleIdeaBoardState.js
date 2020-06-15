@@ -1,14 +1,16 @@
 /*=========================================================================================
-  File Name: moduleTodoGetters.js
-  Description: Todo Module Getters
+  File Name: moduleTodoState.js
+  Description: Todo Module State
   ----------------------------------------------------------------------------------------
   Item Name: Vuexy - Vuejs, HTML & Laravel Admin Dashboard Template
   Author: Pixinvent
   Author URL: http://www.themeforest.net/user/pixinvent
 ==========================================================================================*/
 
+
 export default {
-  getCrews: state => {
-    return state.tasks
-  }
-};
+  tasks: [],
+  taskTags: [],
+  todoSearchQuery: '',
+  todoFilter: null
+}

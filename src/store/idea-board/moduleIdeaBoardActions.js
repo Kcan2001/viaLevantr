@@ -14,9 +14,9 @@ export default {
   setTodoSearchQuery ({ commit }, query) {
     commit('SET_TODO_SEARCH_QUERY', query)
   },
-  fetchTasks({ commit }, payload) {
+  fetchIdeaBoard({ commit }) {
     return new Promise((resolve, reject) => {
-      fb.crewCollection.doc('crew_name').get()
+      fb.crewCollection.doc('idea_board').get()
         .then(response => {
           commit("SET_TASKS", response.data());
           resolve(response.data());
@@ -27,25 +27,11 @@ export default {
     });
   },
 
-  fetchTags({ commit }) {
-    return new Promise((resolve, reject) => {
-      axios
-        .get("/api/apps/todo/tags")
-        .then(response => {
-          commit("SET_TAGS", response.data);
-          resolve(response);
-        })
-        .catch(error => {
-          reject(error);
-        });
-    });
-  },
-
-  addTask({ commit }, task) {
+  addIdeaBoard({ commit }, task) {
     return new Promise((resolve, reject) => {
       let user = task.user + "_" + Math.floor(Math.random() * 100000000 + 1);
       fb.crewCollection
-        .doc('crew_name')
+        .doc('idea_board')
         .set(task)
         .then(response => {
           resolve(response);

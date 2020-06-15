@@ -28,19 +28,19 @@ export default [
     i18n: 'Crew'
   },
   {
+    url: '/idea-board',
+    name: 'Idea Board',
+    slug: 'idea-board',
+    icon: 'GridIcon',
+    i18n: 'IdeaBoard'
+  },
+  {
     url: '/apps/calendar/vue-simple-calendar',
     name: 'Calendar',
     slug: 'calendar-simple-calendar',
     icon: 'CalendarIcon',
     tagColor: 'success',
     i18n: 'Calendar'
-  },
-  {
-    url: '/dashboard/ecommerce',
-    name: 'Idea Board',
-    slug: 'idea-board',
-    icon: 'GridIcon',
-    i18n: 'IdeaBoard'
   },
   {
     url: '/dashboard/analytics',
