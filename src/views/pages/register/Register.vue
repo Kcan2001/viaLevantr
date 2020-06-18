@@ -24,17 +24,17 @@
                                     <p>Fill the below form to create a new account.</p>
                                 </div>
                                 <vs-tabs>
-                                  <vs-tab label="JWT">
+                                  <!-- <vs-tab label="JWT">
                                     <register-jwt></register-jwt>
                                   </vs-tab>
 
-                                  <vs-tab label="Firebase">
+                                  <vs-tab label="Firebase"> -->
                                     <register-firebase></register-firebase>
-                                  </vs-tab>
+                                  <!-- </vs-tab>
 
                                   <vs-tab label="Auth0">
                                     <register-auth0></register-auth0>
-                                  </vs-tab>
+                                  </vs-tab> -->
                                 </vs-tabs>
                             </div>
                         </div>
