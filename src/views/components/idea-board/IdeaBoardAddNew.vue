@@ -95,6 +95,7 @@ export default {
           )
           this.clearFields()
         }
+        this.$store.dispatch('ideaBoard/fetchIdeaBoard')
       })
     }
   }

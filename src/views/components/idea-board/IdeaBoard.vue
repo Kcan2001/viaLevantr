@@ -3,16 +3,14 @@
     <div class="vx-row">
       <div class="vx-col w-full">
         <idea-board-add-new></idea-board-add-new>
-        <!-- {{getIdeas}} -->
         <vs-list>
           <draggable :list="list" class="cursor-move">
-            <vs-list-item class="flex items-center p-1" v-for="(item, index) in list" :key="index">
-              <vx-card class="overflow-hidden">
-                  location: {{item.location}}
-                  url: {{item.url}}
-                  date: {{item.startDate}}
+              <vx-card v-for="(item, index) in list" :key="index" class="tile">
+                <vs-list-item :title="item.title" :subtitle="item.location"></vs-list-item>
+                  <!-- url: {{item.url}}
+                  startDate: {{item.startDate | date}}
+                  endDate: {{item.endDate | date}} -->
               </vx-card>
-            </vs-list-item>
           </draggable>
         </vs-list>
       </div>
@@ -33,6 +31,7 @@ export default {
       title: 'IdeaBoard',
       dispatchedOrders: [],
       startDate: '',
+      endDate: '',
       langHe: he,
       langEn: en,
       tileTitle: '',
@@ -77,26 +76,9 @@ export default {
 <style lang="scss">
 /*! rtl:begin:ignore */
 #dashboard-analytics {
-  .greet-user {
-    position: relative;
-
-    .decore-left {
-      position: absolute;
-      left: 0;
-      top: 0;
-    }
-    .decore-right {
-      position: absolute;
-      right: 0;
-      top: 0;
-    }
-  }
-
-  @media (max-width: 576px) {
-    .decore-left,
-    .decore-right {
-      width: 140px;
-    }
+  .tile {
+    // background-color: red;
+    margin-bottom: 20px;
   }
 }
 /*! rtl:end:ignore */
