@@ -16,8 +16,8 @@ export default {
     state.todoFilter = filter
   },
   
-  SET_IDEAS (state, ideas) {
-    state.ideas = [ideas]
+  SET_IDEAS (state, idea) {
+    state.ideas.unshift(idea)
   },
   // API
   SET_TAGS (state, tags) {

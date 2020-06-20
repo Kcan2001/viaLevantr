@@ -16,10 +16,11 @@ export default {
   },
   fetchIdeaBoard ({ commit }) {
     return new Promise((resolve, reject) => {
-      fb.crewCollection.doc('idea_board').get()
+      fb.ideasCollection.get()
         .then(response => {
-          commit('SET_IDEAS', response.data())
-          resolve(response.data())
+          response.forEach(function (doc) {
+            commit('SET_IDEAS', doc.data())
+          })
         })
         .catch(error => {
           reject(error)
@@ -29,8 +30,9 @@ export default {
 
   addIdea ({ commit }, idea) {
     return new Promise((resolve, reject) => {
-      fb.crewCollection
-        .doc('idea_board')
+      const id = Math.floor(Math.random() * Math.floor(9999999))
+      fb.ideasCollection
+        .doc(`idea_board_${id}`)
         .set(idea)
         .then(response => {
           resolve(response)

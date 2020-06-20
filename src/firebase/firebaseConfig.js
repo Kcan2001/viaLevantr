@@ -23,9 +23,11 @@ firebase.initializeApp(firebaseConfig)
 const db = firebase.firestore()
 
 // firebase collections
-const crewCollection = db.collection('crew')
+const crewsCollection = db.collection('crews')
+const ideasCollection = db.collection('ideas')
 
 export {
   db,
-  crewCollection
+  crewsCollection,
+  ideasCollection
 }

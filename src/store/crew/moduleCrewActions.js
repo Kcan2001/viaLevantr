@@ -16,7 +16,7 @@ export default {
   },
   fetchCrews ({ commit }) {
     return new Promise((resolve, reject) => {
-      fb.crewCollection.doc('crew_name').get()
+      fb.crewsCollection.doc('crew_name').get()
         .then(response => {
           commit('SET_TASKS', response.data())
           resolve(response.data())
@@ -30,7 +30,7 @@ export default {
   addTask ({ commit }, task) {
     return new Promise((resolve, reject) => {
       const user = `${task.user  }_${  Math.floor(Math.random() * 100000000 + 1)}`
-      fb.crewCollection
+      fb.crewsCollection
         .doc('crew_name')
         .set(task)
         .then(response => {
