@@ -11,4 +11,4 @@ export default {
   getCrews: state => {
     return state.tasks
   }
-};
+}

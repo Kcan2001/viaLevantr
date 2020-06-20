@@ -2,21 +2,25 @@
   <div id="dashboard-analytics">
     <div class="vx-row">
       <div class="vx-col w-full">
-        <vx-card title="Multiple Columns">
+        <idea-board-add-new></idea-board-add-new>
+        <!-- <vx-card title="Multiple Columns">
           <div class="vx-row">
             <div class="vx-col sm:w-1/2 w-full mb-2">
               <vs-input class="w-full" label-placeholder="Title" v-model="tileTitle" />
             </div>
             <div class="vx-col sm:w-1/2 w-full mb-2">
               <vs-input class="w-full" label-placeholder="Location" v-model="location" />
-            </div>
+            </div>        
           </div>
           <div class="vx-row">
+            <div class="vx-col sm:w-1/2 w-full mb-2">
+              <vs-input class="w-full" label-placeholder="URL" v-model="url" />
+            </div>    
             <div class="vx-col sm:w-1/2 w-full mb-2">
               <datepicker :language="$vs.rtl ? langHe : langEn" label-placeholder="Location" name="start-date" v-model="startDate" :disabled="disabledFrom"></datepicker>
             </div>
           </div>
-        </vx-card>
+        </vx-card> -->
       </div>
     </div>
   </div>
@@ -24,7 +28,7 @@
 
 <script>
 import moduleIdeaBoard from '@/store/idea-board/moduleIdeaBoard.js'
-// import IdeaBoardAddNew from "./IdeaBoardAddNew";
+import IdeaBoardAddNew from './IdeaBoardAddNew'
 import Datepicker from 'vuejs-datepicker'
 import { en, he } from 'vuejs-datepicker/src/locale'
 
@@ -37,7 +41,8 @@ export default {
       langHe: he,
       langEn: en,
       tileTitle: '',
-      location: ''
+      location: '',
+      url: ''
     }
   },
   created () {
@@ -57,7 +62,8 @@ export default {
     this.$store.dispatch('crew/fetchCrews')
   },
   components: {
-    Datepicker
+    Datepicker,
+    IdeaBoardAddNew
   },
   computed: {
     getCrews () {

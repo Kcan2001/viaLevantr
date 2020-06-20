@@ -31,9 +31,9 @@ export default {
         .catch((error) => { reject(error) })
     })
   },
-  fetchEventLabels({ commit }) {
+  fetchEventLabels ({ commit }) {
     return new Promise((resolve, reject) => {
-      axios.get("/api/apps/calendar/labels")
+      axios.get('/api/apps/calendar/labels')
         .then((response) => {
           commit('SET_LABELS', response.data)
           resolve(response)

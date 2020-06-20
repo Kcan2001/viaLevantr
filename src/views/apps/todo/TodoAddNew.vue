@@ -72,50 +72,50 @@
 </template>
 
 <script>
-import firebase from "firebase/app";
-import "firebase/auth";
+import firebase from 'firebase/app'
+import 'firebase/auth'
 export default {
-  data() {
+  data () {
     return {
       activePrompt: false,
       taskLocal: {
-        title: "",
-        desc: "",
+        title: '',
+        desc: '',
         isCompleted: false,
         isImportant: false,
         isStarred: false,
         tags: [],
         user: firebase.auth().currentUser.email
       }
-    };
+    }
   },
   computed: {
-    taskTags() {
-      return this.$store.state.todo.taskTags;
+    taskTags () {
+      return this.$store.state.todo.taskTags
     },
-    validateForm() {
-      return !this.errors.any() && this.taskLocal.title !== "";
+    validateForm () {
+      return !this.errors.any() && this.taskLocal.title !== ''
     }
   },
   methods: {
-    clearFields() {
+    clearFields () {
       Object.assign(this.taskLocal, {
-        title: "",
-        desc: "",
+        title: '',
+        desc: '',
         isCompleted: false,
         isImportant: false,
         isStarred: false,
         tags: []
-      });
+      })
     },
-    addTodo() {
+    addTodo () {
       this.$validator.validateAll().then(result => {
         if (result) {
           this.$store.dispatch('todo/addTask', Object.assign({}, this.taskLocal))
           this.clearFields()
         }
-      });
+      })
     }
   }
-};
+}
 </script>

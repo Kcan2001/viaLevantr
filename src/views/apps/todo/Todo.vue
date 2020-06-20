@@ -130,7 +130,7 @@ export default {
     TodoTask,
     TodoFilters,
     TodoEdit,
-    VuePerfectScrollbar,
+    VuePerfectScrollbar
   },
   created () {
     this.$store.registerModule('todo', moduleTodo)

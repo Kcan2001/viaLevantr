@@ -39,4 +39,4 @@ export default {
   },
   getTask: state => taskId => state.tasks.find(task => task.id === taskId)
   // getTodosBySection: state => (sectionId) => state.todoArray.filter((task) => task.sectionId == sectionId),
-};
+}

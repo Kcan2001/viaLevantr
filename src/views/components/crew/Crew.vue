@@ -71,18 +71,18 @@
 </template>
 
 <script>
-import moduleCrew from "@/store/crew/moduleCrew.js";
-import CrewAddNew from "./CrewAddNew";
-import { mapGetters } from "vuex";
+import moduleCrew from '@/store/crew/moduleCrew.js'
+import CrewAddNew from './CrewAddNew'
+import { mapGetters } from 'vuex'
 
 export default {
-  data() {
+  data () {
     return {
-      title: "Crews",
+      title: 'Crews',
       dispatchedOrders: []
-    };
+    }
   },
-  created() {
+  created () {
     // Dispatched Orders
     // this.$http
     //   .get("/api/table/dispatched-orders")
@@ -93,20 +93,20 @@ export default {
     //     console.log(error);
     //   });
 
-    this.$store.registerModule("crew", moduleCrew);
+    this.$store.registerModule('crew', moduleCrew)
 
     // Fetch Tasks
-    this.$store.dispatch("crew/fetchCrews");
+    this.$store.dispatch('crew/fetchCrews')
   },
   components: {
     CrewAddNew
   },
   computed: {
-    getCrews() {
-      return this.$store.getters["crew/getCrews"];
+    getCrews () {
+      return this.$store.getters['crew/getCrews']
     }
   }
-};
+}
 </script>
 
 <style lang="scss">

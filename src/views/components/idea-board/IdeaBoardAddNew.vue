@@ -10,13 +10,13 @@
 
 <template>
   <div class="px-6 pb-2 pt-6">
-    <vs-button @click="activePrompt = true" class="w-full">Create Crew</vs-button>
+    <vs-button @click="activePrompt = true" class="w-full">Create Idea Tile</vs-button>
     <vs-prompt
-      title="Create Your Crew"
-      accept-text="Create Crew"
+      title="Create A Idea Tile"
+      accept-text="Create Tile"
       button-cancel="border"
       @cancel="clearFields"
-      @accept="createCrew"
+      @accept="createTile"
       @close="clearFields"
       :is-valid="validateForm"
       :active.sync="activePrompt"
@@ -59,75 +59,75 @@
 </template>
 
 <script>
-import firebase from "firebase/app";
-import "firebase/auth";
+import firebase from 'firebase/app'
+import 'firebase/auth'
 export default {
-  data() {
+  data () {
     return {
       activePrompt: false,
       taskLocal: {
         orderNo: 879985,
-        status: "Moving",
-        statusColor: "success",
-        operator: "Cinar Knowles",
-        operatorImg: require("@/assets/images/portrait/small/avatar-s-2.jpg"),
+        status: 'Moving',
+        statusColor: 'success',
+        operator: 'Cinar Knowles',
+        operatorImg: require('@/assets/images/portrait/small/avatar-s-2.jpg'),
         usersLiked: [
           {
-            name: "Vennie Mostowy",
-            img: require("@/assets/images/portrait/small/avatar-s-5.jpg")
+            name: 'Vennie Mostowy',
+            img: require('@/assets/images/portrait/small/avatar-s-5.jpg')
           },
           {
-            name: "Elicia Rieske",
-            img: require("@/assets/images/portrait/small/avatar-s-7.jpg")
+            name: 'Elicia Rieske',
+            img: require('@/assets/images/portrait/small/avatar-s-7.jpg')
           },
           {
-            name: "Julee Rossignol",
-            img: require("@/assets/images/portrait/small/avatar-s-10.jpg")
+            name: 'Julee Rossignol',
+            img: require('@/assets/images/portrait/small/avatar-s-10.jpg')
           },
           {
-            name: "Darcey Nooner",
-            img: require("@/assets/images/portrait/small/avatar-s-8.jpg")
+            name: 'Darcey Nooner',
+            img: require('@/assets/images/portrait/small/avatar-s-8.jpg')
           }
         ],
-        location: "Anniston, Alabama",
-        distance: "130 km",
+        location: 'Anniston, Alabama',
+        distance: '130 km',
         distPercent: 80,
-        startDate: "26/07/2018",
-        estDelDate: "28/07/2018"
+        startDate: '26/07/2018',
+        estDelDate: '28/07/2018'
       },
-      email: ""
-    };
+      email: ''
+    }
   },
   computed: {
-    taskTags() {
-      return this.$store.state.todo.taskTags;
+    taskTags () {
+      return this.$store.state.todo.taskTags
     },
-    validateForm() {
-      return !this.errors.any() && this.taskLocal.title !== "";
+    validateForm () {
+      return !this.errors.any() && this.taskLocal.title !== ''
     }
   },
   methods: {
-    clearFields() {
+    clearFields () {
       Object.assign(this.taskLocal, {
-        title: "",
-        desc: "",
+        title: '',
+        desc: '',
         isCompleted: false,
         isImportant: false,
         isStarred: false,
         tags: []
-      });
+      })
     },
-    createCrew() {
+    createTile () {
       this.$validator.validateAll().then(result => {
         if (result) {
           this.$store.dispatch(
-            "crew/addTask",
+            'crew/addTask',
             Object.assign({}, this.taskLocal)
-          );
-          this.clearFields();
+          )
+          this.clearFields()
         }
-      });
+      })
     }
   }
-};
+}
 </script>
