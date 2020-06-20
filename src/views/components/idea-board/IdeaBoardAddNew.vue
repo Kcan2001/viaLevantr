@@ -18,53 +18,41 @@
       @cancel="clearFields"
       @accept="createTile"
       @close="clearFields"
-      :is-valid="validateForm"
+      :is-valid="validForm"
       :active.sync="activePrompt"
     >
-      <div>
-        <form>
-          <div class="vx-row">
-            <div class="vx-col ml-auto flex"></div>
-          </div>
-
-          <div class="vx-row">
-            <div class="vx-col w-full">
-              <vs-input
-                v-validate="'required'"
-                name="title"
-                class="w-full mb-4 mt-5"
-                placeholder="Title"
-                v-model="taskLocal.title"
-                :color="validateForm ? 'success' : 'danger'"
-              />
-              <vs-textarea rows="5" label="Add description" v-model="taskLocal.desc" />
-
-              <vs-input
-                v-validate="'email'"
-                label="Must be a valid email"
-                name="email"
-                v-model="email"
-                class="mt-5 w-full"
-              />
-              <span
-                class="text-danger text-sm"
-                v-show="errors.has('email')"
-              >{{ errors.first('email') }}</span>
-            </div>
-          </div>
-        </form>
-      </div>
+        <vs-input name="event-name" v-validate="'required'" class="w-full" label-placeholder="Event Title" v-model="title"></vs-input>
+        <div class="my-4">
+            <small class="date-label">Start Date</small>
+            <datepicker :language="$vs.rtl ? langHe : langEn" name="start-date" v-model="startDate" :disabled="disabledFrom"></datepicker>
+        </div>
+        <div class="my-4">
+            <small class="date-label">End Date</small>
+            <datepicker :language="$vs.rtl ? langHe : langEn" :disabledDates="disabledDatesTo" name="end-date" v-model="endDate"></datepicker>
+        </div>
+        <vs-input name="event-url" v-validate="'url'" class="w-full mt-6" label-placeholder="Event URL" v-model="url" :color="!errors.has('event-url') ? 'success' : 'danger'"></vs-input>
     </vs-prompt>
   </div>
 </template>
 
 <script>
+import Datepicker from 'vuejs-datepicker'
 import firebase from 'firebase/app'
 import 'firebase/auth'
+import { en, he } from 'vuejs-datepicker/src/locale'
+
 export default {
   data () {
     return {
       activePrompt: false,
+      title: '',
+      location: '',
+      url: '',
+      startDate: Date.now(),
+      endDate: Date.now(),
+      langHe: he,
+      langEn: en,
+      disabledFrom: false,
       taskLocal: {
         orderNo: 879985,
         status: 'Moving',
@@ -98,12 +86,21 @@ export default {
       email: ''
     }
   },
+  components: {
+    Datepicker
+  },
   computed: {
     taskTags () {
       return this.$store.state.todo.taskTags
     },
     validateForm () {
       return !this.errors.any() && this.taskLocal.title !== ''
+    },
+    validForm () {
+      return this.title !== '' && this.startDate !== '' && this.endDate !== '' && Date.parse(this.endDate) - Date.parse(this.startDate) >= 0 && !this.errors.has('event-url')
+    },
+    disabledDatesTo () {
+      return { to: new Date(this.startDate) }
     }
   },
   methods: {
@@ -121,7 +118,7 @@ export default {
       this.$validator.validateAll().then(result => {
         if (result) {
           this.$store.dispatch(
-            'crew/addTask',
+            'ideaBoard/addIdea',
             Object.assign({}, this.taskLocal)
           )
           this.clearFields()

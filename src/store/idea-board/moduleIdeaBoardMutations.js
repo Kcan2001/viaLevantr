@@ -16,15 +16,15 @@ export default {
     state.todoFilter = filter
   },
   
-  SET_TASKS (state, tasks) {
-    state.tasks = [tasks]
+  SET_IDEAS (state, ideas) {
+    state.ideas = [ideas]
   },
   // API
   SET_TAGS (state, tags) {
     state.taskTags = tags
   },
-  ADD_TASK (state, task) {
-    state.tasks.unshift(task)
+  ADD_IDEA (state, idea) {
+    state.ideas.unshift(idea)
   },
   UPDATE_TASK (state, task) {
     const taskIndex = state.tasks.findIndex((t) => t.id === task.id)

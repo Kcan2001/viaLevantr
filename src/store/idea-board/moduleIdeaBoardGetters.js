@@ -8,7 +8,7 @@
 ==========================================================================================*/
 
 export default {
-  getCrews: state => {
-    return state.tasks
+  getIdeas: state => {
+    return state.ideas
   }
 }

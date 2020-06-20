@@ -3,24 +3,6 @@
     <div class="vx-row">
       <div class="vx-col w-full">
         <idea-board-add-new></idea-board-add-new>
-        <!-- <vx-card title="Multiple Columns">
-          <div class="vx-row">
-            <div class="vx-col sm:w-1/2 w-full mb-2">
-              <vs-input class="w-full" label-placeholder="Title" v-model="tileTitle" />
-            </div>
-            <div class="vx-col sm:w-1/2 w-full mb-2">
-              <vs-input class="w-full" label-placeholder="Location" v-model="location" />
-            </div>        
-          </div>
-          <div class="vx-row">
-            <div class="vx-col sm:w-1/2 w-full mb-2">
-              <vs-input class="w-full" label-placeholder="URL" v-model="url" />
-            </div>    
-            <div class="vx-col sm:w-1/2 w-full mb-2">
-              <datepicker :language="$vs.rtl ? langHe : langEn" label-placeholder="Location" name="start-date" v-model="startDate" :disabled="disabledFrom"></datepicker>
-            </div>
-          </div>
-        </vx-card> -->
       </div>
     </div>
   </div>

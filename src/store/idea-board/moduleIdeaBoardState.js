@@ -9,8 +9,8 @@
 
 
 export default {
-  tasks: [],
-  taskTags: [],
-  todoSearchQuery: '',
-  todoFilter: null
+  ideas: []
+  // taskTags: [],
+  // todoSearchQuery: '',
+  // todoFilter: null
 }

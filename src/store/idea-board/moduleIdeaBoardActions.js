@@ -18,7 +18,7 @@ export default {
     return new Promise((resolve, reject) => {
       fb.crewCollection.doc('idea_board').get()
         .then(response => {
-          commit('SET_TASKS', response.data())
+          commit('SET_IDEAS', response.data())
           resolve(response.data())
         })
         .catch(error => {
@@ -27,15 +27,14 @@ export default {
     })
   },
 
-  addIdeaBoard ({ commit }, task) {
+  addIdea ({ commit }, idea) {
     return new Promise((resolve, reject) => {
-      const user = `${task.user  }_${  Math.floor(Math.random() * 100000000 + 1)}`
       fb.crewCollection
         .doc('idea_board')
-        .set(task)
+        .set(idea)
         .then(response => {
           resolve(response)
-          commit('ADD_TASK', Object.assign(task, { id: response.id }))
+          commit('ADD_IDEA', Object.assign(idea, { id: response.id }))
         })
         .catch(error => {
           reject(error)
