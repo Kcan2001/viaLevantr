@@ -16,8 +16,11 @@ export default {
     state.todoFilter = filter
   },
   
-  SET_IDEAS (state, idea) {
-    state.ideas.unshift(idea)
+  SET_IDEAS (state, ideas) {
+    if (state.ideas.find(idea => idea.title === ideas.title)) {
+      return
+    }
+    state.ideas.unshift(ideas)
   },
   // API
   SET_TAGS (state, tags) {

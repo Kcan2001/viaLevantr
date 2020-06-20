@@ -6,7 +6,7 @@
         <!-- {{getIdeas}} -->
         <vs-list>
           <draggable :list="list" class="cursor-move">
-            <vs-list-item class="flex items-center p-1" v-for="(item, index) in getIdeas" :key="index">
+            <vs-list-item class="flex items-center p-1" v-for="(item, index) in list" :key="index">
               <vx-card class="overflow-hidden">
                   location: {{item.location}}
                   url: {{item.url}}
@@ -38,12 +38,7 @@ export default {
       tileTitle: '',
       location: '',
       url: '',
-      list: [
-        'Marzipan I love I love. Soufflé donut I love gummi bears powder. Candy danish biscuit.',
-        'Halvah bonbon bonbon brownie sugar plum. Halvah I love cupcake I love.',
-        'Cake muffin icing topping wafer topping gummi bears apple pie.',
-        'Cotton candy gummi bears bear claw cake brownie jelly-o lemon drops croissant sweet roll.'
-      ]
+      list: []
     }
   },
   created () {
@@ -62,6 +57,9 @@ export default {
     // Fetch Tasks
     this.$store.dispatch('ideaBoard/fetchIdeaBoard')
   },
+  mounted () {
+    this.list = this.$store.getters['idea-board/getIdeas']
+  },
   components: {
     Datepicker,
     IdeaBoardAddNew,
@@ -69,6 +67,7 @@ export default {
   },
   computed: {
     getIdeas () {
+      // this.list = this.$store.getters['idea-board/getIdeas']
       return this.$store.getters['idea-board/getIdeas']
     }
   }
