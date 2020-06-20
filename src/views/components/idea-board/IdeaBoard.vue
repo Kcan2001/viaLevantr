@@ -1,68 +1,20 @@
 <template>
   <div id="dashboard-analytics">
     <div class="vx-row">
-      <!-- CARD 9: DISPATCHED ORDERS -->
       <div class="vx-col w-full">
-        <crew-add-new />
-        <vx-card :title="title">
-          <div slot="no-body" class="mt-4">
-            <vs-table :data="getCrews" class="table-dark-inverted">
-              <template slot="thead">
-                <vs-th>NAME</vs-th>
-                <vs-th>STATUS</vs-th>
-                <vs-th>MEMBERS</vs-th>
-                <vs-th>LOCATION</vs-th>
-                <vs-th>DISTANCE</vs-th>
-                <vs-th>START DATE</vs-th>
-                <vs-th>END DATE</vs-th>
-              </template>
-
-              <template slot-scope="{data}">
-                <vs-tr :key="indextr" v-for="(tr, indextr) in data">
-                  <vs-td :data="data[indextr].orderNo">
-                    <span>#{{data[indextr].orderNo}}</span>
-                  </vs-td>
-                  <vs-td :data="data[indextr].status">
-                    <span class="flex items-center px-2 py-1 rounded">
-                      <div
-                        class="h-3 w-3 rounded-full mr-2"
-                        :class="'bg-' + data[indextr].statusColor"
-                      ></div>
-                      {{data[indextr].status}}
-                    </span>
-                  </vs-td>
-                  <vs-td :data="data[indextr].orderNo">
-                    <ul class="users-liked user-list">
-                      <li v-for="(user, userIndex) in data[indextr].usersLiked" :key="userIndex">
-                        <vx-tooltip :text="user.name" position="bottom">
-                          <vs-avatar
-                            :src="user.img"
-                            size="30px"
-                            class="border-2 border-white border-solid -m-1"
-                          ></vs-avatar>
-                        </vx-tooltip>
-                      </li>
-                    </ul>
-                  </vs-td>
-                  <vs-td :data="data[indextr].orderNo">
-                    <span>{{data[indextr].location}}</span>
-                  </vs-td>
-                  <vs-td :data="data[indextr].orderNo">
-                    <span>{{data[indextr].distance}}</span>
-                    <vs-progress
-                      :percent="data[indextr].distPercent"
-                      :color="data[indextr].statusColor"
-                    ></vs-progress>
-                  </vs-td>
-                  <vs-td :data="data[indextr].orderNo">
-                    <span>{{data[indextr].startDate}}</span>
-                  </vs-td>
-                  <vs-td :data="data[indextr].orderNo">
-                    <span>{{data[indextr].estDelDate}}</span>
-                  </vs-td>
-                </vs-tr>
-              </template>
-            </vs-table>
+        <vx-card title="Multiple Columns">
+          <div class="vx-row">
+            <div class="vx-col sm:w-1/2 w-full mb-2">
+              <vs-input class="w-full" label-placeholder="Title" v-model="tileTitle" />
+            </div>
+            <div class="vx-col sm:w-1/2 w-full mb-2">
+              <vs-input class="w-full" label-placeholder="Location" v-model="location" />
+            </div>
+          </div>
+          <div class="vx-row">
+            <div class="vx-col sm:w-1/2 w-full mb-2">
+              <datepicker :language="$vs.rtl ? langHe : langEn" label-placeholder="Location" name="start-date" v-model="startDate" :disabled="disabledFrom"></datepicker>
+            </div>
           </div>
         </vx-card>
       </div>
@@ -71,18 +23,24 @@
 </template>
 
 <script>
-import moduleIdeaBoard from "@/store/idea-board/moduleIdeaBoard.js";
-import IdeaBoardAddNew from "./IdeaBoardAddNew";
-import { mapGetters } from "vuex";
+import moduleIdeaBoard from '@/store/idea-board/moduleIdeaBoard.js'
+// import IdeaBoardAddNew from "./IdeaBoardAddNew";
+import Datepicker from 'vuejs-datepicker'
+import { en, he } from 'vuejs-datepicker/src/locale'
 
 export default {
-  data() {
+  data () {
     return {
-      title: "Crews",
-      dispatchedOrders: []
-    };
+      title: 'IdeaBoard',
+      dispatchedOrders: [],
+      startDate: '',
+      langHe: he,
+      langEn: en,
+      tileTitle: '',
+      location: ''
+    }
   },
-  created() {
+  created () {
     // Dispatched Orders
     // this.$http
     //   .get("/api/table/dispatched-orders")
@@ -93,20 +51,20 @@ export default {
     //     console.log(error);
     //   });
 
-    this.$store.registerModule("idea-board", moduleIdeaBoard);
+    this.$store.registerModule('idea-board', moduleIdeaBoard)
 
     // Fetch Tasks
-    this.$store.dispatch("crew/fetchCrews");
+    this.$store.dispatch('crew/fetchCrews')
   },
   components: {
-    
+    Datepicker
   },
   computed: {
-    getCrews() {
-      return this.$store.getters["idea-board/getCrews"];
+    getCrews () {
+      return this.$store.getters['idea-board/getCrews']
     }
   }
-};
+}
 </script>
 
 <style lang="scss">
