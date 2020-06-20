@@ -43,12 +43,12 @@ export default [
     i18n: 'Calendar'
   },
   {
-    url: '/dashboard/analytics',
+    url: '/just-in-case',
     name: 'Just in case',
-    slug: 'idea-board',
+    slug: 'just-in-case',
     icon: 'GridIcon',
     i18n: 'JustInCase'
-  }  
+  }
   // {
   //   header: 'Apps',
   //   icon: 'PackageIcon',

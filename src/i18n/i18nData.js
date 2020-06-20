@@ -83,7 +83,7 @@ export default {
     500: '500',
     IdeaBoard: 'Idea Board',
     Crew: 'Crew',
-    JustInCase: ' Just in Case',
+    JustInCase: 'Just in Case',
     NotAuthorized: 'Not Authorized',
     Maintenance: 'Maintenance',
     Profile: 'Profile',
