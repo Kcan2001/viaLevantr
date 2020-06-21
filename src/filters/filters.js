@@ -33,6 +33,13 @@ Vue.filter('tailing', function (value, tail) {
   return value + tail
 })
 
+Vue.filter('timestamp', function (value) {
+  if (value) {
+    const date = new Date(value * 1000)
+    return `${date.getMonth()}/${date.getDay()}`
+  }
+})
+
 Vue.filter('time', function (value, is24HrFormat = false) {
   if (value) {
     const date = new Date(Date.parse(value))
