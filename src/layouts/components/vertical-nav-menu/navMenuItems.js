@@ -21,18 +21,18 @@
 
 export default [
   {
-    url: '/',
-    name: 'Crew',
-    slug: 'crew',
-    icon: 'UserCheckIcon',
-    i18n: 'Crew'
-  },
-  {
     url: '/idea-board',
     name: 'Idea Board',
     slug: 'idea-board',
     icon: 'GridIcon',
     i18n: 'IdeaBoard'
+  },
+  {
+    url: '/',
+    name: 'Crew',
+    slug: 'crew',
+    icon: 'UserCheckIcon',
+    i18n: 'Crew'
   },
   {
     url: '/apps/calendar/vue-simple-calendar',
