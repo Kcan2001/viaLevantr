@@ -73,7 +73,6 @@
 <script>
 import moduleCrew from '@/store/crew/moduleCrew.js'
 import CrewAddNew from './CrewAddNew'
-import { mapGetters } from 'vuex'
 
 export default {
   data () {

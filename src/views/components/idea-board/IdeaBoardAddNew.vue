@@ -38,8 +38,6 @@
 
 <script>
 import Datepicker from 'vuejs-datepicker'
-import firebase from 'firebase/app'
-import 'firebase/auth'
 import { en, he } from 'vuejs-datepicker/src/locale'
 
 export default {

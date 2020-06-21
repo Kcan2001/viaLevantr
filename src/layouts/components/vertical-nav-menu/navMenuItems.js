@@ -41,7 +41,7 @@ export default [
     icon: 'CalendarIcon',
     tagColor: 'success',
     i18n: 'Calendar'
-  },
+  }
   // {
   //   url: '/just-in-case',
   //   name: 'Just in case',

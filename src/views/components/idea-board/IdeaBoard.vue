@@ -7,9 +7,10 @@
           <draggable :list="list" class="cursor-move">
               <vx-card v-for="(item, index) in list" :key="index" class="tile">
                 <vs-list-item :title="item.title" :subtitle="item.location"></vs-list-item>
-                  <!-- url: {{item.url}}
-                  startDate: {{item.startDate | date}}
-                  endDate: {{item.endDate | date}} -->
+                  Rank: {{index}} |
+                  url: {{item.url}} |
+                  startDate: {{item.startDate | date}} |
+                  endDate: {{item.endDate | date}}
               </vx-card>
           </draggable>
         </vs-list>

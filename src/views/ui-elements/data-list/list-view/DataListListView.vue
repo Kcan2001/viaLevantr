@@ -163,9 +163,9 @@ export default {
       }
       return 0
     },
-    products () {
-      return this.$store.state.dataList.products
-    },
+    // products () {
+    //   return this.$store.state.dataList.products
+    // },
     queriedItems () {
       return this.$refs.table ? this.$refs.table.queriedResults.length : this.products.length
     }

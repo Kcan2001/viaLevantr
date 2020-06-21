@@ -14,7 +14,7 @@ export default {
   setTodoSearchQuery ({ commit }, query) {
     commit('SET_TODO_SEARCH_QUERY', query)
   },
-  fetchTasks ({ commit }, payload) {
+  fetchTasks ({ commit }) {
     return new Promise((resolve, reject) => {
       fb.crewCollection.doc('crew_name').get()
         .then(response => {
@@ -43,7 +43,6 @@ export default {
 
   addTask ({ commit }, task) {
     return new Promise((resolve, reject) => {
-      const user = `${task.user  }_${  Math.floor(Math.random() * 100000000 + 1)}`
       fb.crewCollection
         .doc('crew_name')
         .set(task)
