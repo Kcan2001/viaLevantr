@@ -28,15 +28,29 @@ export default {
     })
   },
 
+  removeIdea ({ commit }, ideaId) {
+    return new Promise((resolve, reject) => {
+      fb.ideasCollection
+        .doc(`idea_board_${ideaId}`)
+        .delete()
+        .then(response => {
+          resolve(response)
+          commit('REMOVE_IDEA', ideaId)
+        })
+        .catch(error => {
+          reject(error)
+        })
+    })
+  },
+
   addIdea ({ commit }, idea) {
     return new Promise((resolve, reject) => {
-      const id = Math.floor(Math.random() * Math.floor(9999999))
       fb.ideasCollection
-        .doc(`idea_board_${id}`)
+        .doc(`idea_board_${idea.id}`)
         .set(idea)
         .then(response => {
           resolve(response)
-          commit('ADD_IDEA', Object.assign(idea, { id: response.id }))
+          commit('ADD_IDEA', idea)
         })
         .catch(error => {
           reject(error)

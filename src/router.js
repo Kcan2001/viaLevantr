@@ -46,7 +46,7 @@ const router = new Router({
         // =============================================================================
         {
           path: '/',
-          redirect: '/crew',
+          redirect: '/idea-board',
           meta: {
             // rule: 'admin',
             authRequired: false

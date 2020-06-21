@@ -8,9 +8,11 @@
               <vx-card v-for="(item, index) in list" :key="index" class="tile">
                 <vs-list-item :title="item.title" :subtitle="item.location"></vs-list-item>
                   Rank: {{index + 1}} |
-                  Start Date: {{ item.startDate | timestamp }} |
-                  End Date: {{item.endDate | timestamp}}
-                  URL: {{item.url}} |
+                  Date: {{ item.startDate | timestamp }} - {{ item.endDate | timestamp }} 
+                  <!-- <a target="_blank" rel="nofollow" :href="item.url" tabindex="-1">Link</a>
+                  <button-link >Link</button-link> -->
+                  <vs-button @click="link(item.url);" color="primary" type="filled">LINK</vs-button>
+                  <vs-button @click="deleteIdea(item.id);" color="danger" type="filled" target="_blank">Delete</vs-button>
               </vx-card>
           </draggable>
         </vs-list>
@@ -42,16 +44,6 @@ export default {
     }
   },
   created () {
-    // Dispatched Orders
-    // this.$http
-    //   .get("/api/table/dispatched-orders")
-    //   .then(response => {
-    //     this.dispatchedOrders = response.data;
-    //   })
-    //   .catch(error => {
-    //     console.log(error);
-    //   });
-
     this.$store.registerModule('idea-board', moduleIdeaBoard)
 
     // Fetch Tasks
@@ -65,10 +57,12 @@ export default {
     IdeaBoardAddNew,
     draggable
   },
-  computed: {
-    getIdeas () {
-      // this.list = this.$store.getters['idea-board/getIdeas']
-      return this.$store.getters['idea-board/getIdeas']
+  methods: {
+    link (url) {
+      window.open(`http://${url}`, '_blank');
+    },
+    deleteIdea (ideaId) {
+      this.$store.dispatch('ideaBoard/removeIdea', ideaId)
     }
   }
 }

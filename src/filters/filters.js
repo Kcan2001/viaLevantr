@@ -34,9 +34,11 @@ Vue.filter('tailing', function (value, tail) {
 })
 
 Vue.filter('timestamp', function (value) {
+  // console.log('here timestamp ', value)
   if (value) {
+    // console.log('here timestamp ', Date.now(value.seconds))
     const date = new Date(value * 1000)
-    return `${date.getMonth()}/${date.getDay()}`
+    return `${date.getMonth()}/${date.getDate()}`
   }
 })
 

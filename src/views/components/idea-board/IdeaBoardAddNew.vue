@@ -48,6 +48,7 @@ export default {
       langEn: en,
       disabledFrom: false,
       ideaForm: {
+        id: Math.floor(Math.random() * Math.floor(9999999)),
         title: '',
         location: '',
         url: '',
@@ -77,6 +78,7 @@ export default {
   methods: {
     clearFields () {
       Object.assign(this.ideaForm, {
+        id: Math.floor(Math.random() * Math.floor(9999999)),
         title: '',
         location: '',
         url: '',
@@ -93,7 +95,6 @@ export default {
           )
           this.clearFields()
         }
-        this.$store.dispatch('ideaBoard/fetchIdeaBoard')
       })
     }
   }

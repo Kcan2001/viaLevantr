@@ -17,9 +17,6 @@ export default {
   },
   
   SET_IDEAS (state, ideas) {
-    if (state.ideas.find(idea => idea.title === ideas.title)) {
-      return
-    }
     state.ideas.unshift(ideas)
   },
   // API
@@ -32,5 +29,9 @@ export default {
   UPDATE_TASK (state, task) {
     const taskIndex = state.tasks.findIndex((t) => t.id === task.id)
     Object.assign(state.tasks[taskIndex], task)
+  },
+  REMOVE_IDEA (state, ideaId) {
+    const IdeaIndex = state.ideas.findIndex((p) => p.id === ideaId)
+    state.ideas.splice(IdeaIndex, 1)
   }
 }
