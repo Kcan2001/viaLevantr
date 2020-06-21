@@ -94,6 +94,10 @@ export default {
             Object.assign({}, this.ideaForm)
           )
           this.clearFields()
+          this.$vs.loading()
+          setTimeout(() => {
+            this.$vs.loading.close()
+          }, 500)
         }
       })
     }

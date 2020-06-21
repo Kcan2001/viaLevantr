@@ -17,6 +17,9 @@ export default {
   },
   
   SET_IDEAS (state, ideas) {
+    if (state.ideas.find(idea => idea.title === ideas.title)) {
+      return
+    }
     state.ideas.unshift(ideas)
   },
   // API

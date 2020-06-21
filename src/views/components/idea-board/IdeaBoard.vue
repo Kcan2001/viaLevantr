@@ -6,13 +6,14 @@
         <vs-list>
           <draggable :list="list" class="cursor-move">
               <vx-card v-for="(item, index) in list" :key="index" class="tile">
-                <vs-list-item :title="item.title" :subtitle="item.location"></vs-list-item>
-                  Rank: {{index + 1}} |
-                  Date: {{ item.startDate | timestamp }} - {{ item.endDate | timestamp }} 
-                  <!-- <a target="_blank" rel="nofollow" :href="item.url" tabindex="-1">Link</a>
-                  <button-link >Link</button-link> -->
-                  <vs-button @click="link(item.url);" color="primary" type="filled">LINK</vs-button>
-                  <vs-button @click="deleteIdea(item.id);" color="danger" type="filled" target="_blank">Delete</vs-button>
+                <vs-list-item :title="item.title" :subtitle="item.location">
+                <div class="idea-tile-container">
+                  <h3>Rank: {{index + 1}}</h3>
+                  <h3>Date: {{ item.startDate | timestamp }} - {{ item.endDate | timestamp }}</h3>
+                    <vs-button v-if="item.url" @click="link(item.url);" color="primary" type="filled">LINK</vs-button>
+                    <vs-button @click="deleteIdea(item.id);" color="danger" type="filled" target="_blank">Delete</vs-button>
+                </div>
+                </vs-list-item>
               </vx-card>
           </draggable>
         </vs-list>
@@ -40,7 +41,8 @@ export default {
       tileTitle: '',
       location: '',
       url: '',
-      list: []
+      list: [],
+      isLoading: false
     }
   },
   created () {
@@ -59,9 +61,13 @@ export default {
   },
   methods: {
     link (url) {
-      window.open(`http://${url}`, '_blank');
+      window.open(`http://${url}`, '_blank')
     },
     deleteIdea (ideaId) {
+      this.$vs.loading()
+      setTimeout(() => {
+        this.$vs.loading.close()
+      }, 500)
       this.$store.dispatch('ideaBoard/removeIdea', ideaId)
     }
   }
@@ -74,6 +80,11 @@ export default {
   .tile {
     // background-color: red;
     margin-bottom: 20px;
+  }
+  .idea-tile-container {
+    display: flex;
+    justify-content: space-between;
+    widows: 420px;
   }
 }
 /*! rtl:end:ignore */

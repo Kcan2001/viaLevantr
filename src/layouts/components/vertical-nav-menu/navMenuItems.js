@@ -28,7 +28,7 @@ export default [
     i18n: 'IdeaBoard'
   },
   {
-    url: '/',
+    url: '/crew',
     name: 'Crew',
     slug: 'crew',
     icon: 'UserCheckIcon',
