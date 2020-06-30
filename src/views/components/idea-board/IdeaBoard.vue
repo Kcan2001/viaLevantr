@@ -1,25 +1,32 @@
 <template>
-  <div id="dashboard-analytics">
-    <div class="vx-row">
-      <div class="vx-col w-full">
-        <idea-board-add-new></idea-board-add-new>
-        <vs-list>
-          <draggable :list="list" class="cursor-move">
-              <vx-card v-for="(item, index) in list" :key="index" class="tile">
-                <vs-list-item :title="item.title" :subtitle="item.location">
-                <div class="idea-tile-container">
-                  <h3>Rank: {{index + 1}}</h3>
-                  <h3>Date: {{ item.startDate | timestamp }} - {{ item.endDate | timestamp }}</h3>
-                    <vs-button v-if="item.url" @click="link(item.url);" color="primary" type="filled">LINK</vs-button>
-                    <vs-button @click="deleteIdea(item.id);" color="danger" type="filled" target="_blank">Delete</vs-button>
-                </div>
-                </vs-list-item>
-              </vx-card>
-          </draggable>
-        </vs-list>
-      </div>
+   <div id="idea-card">
+        <IdeaBoardAddNew />
+        <div class="vx-row">
+            <div class="vx-col w-full sm:w-1/2 lg:w-1/3 mb-base" v-for="item in list" :key="item.id">
+                <vx-card>
+                    <img src="https://www.familyvacationcritic.com/uploads/sites/19/2018/09/best-ideas-1280x640.jpg" alt="content-img" class="responsive rounded-lg">
+                    <div class="my-6">
+                          <h5 class="mb-2">{{ item.title }}</h5>
+                          <p class="text-grey">{{ item.location }}</p>
+                          <h5 v-if="item.startDate !== item.endDate" class="mb-2">{{ item.startDate | timestamp }} - {{ item.endDate | timestamp }}</h5>
+                    </div>
+                    <vs-divider></vs-divider>
+                    <div class="flex justify-between flex-wrap">
+                        <span>
+                            <!-- <p class="text-xl">{{ card_2.footer_text_left_value }}</p> -->
+                            <!-- <p class="text-grey">{{ card_2.footer_text_left_label }}</p> -->
+                            <vs-button v-if="item.url" @click="link(item.url);" color="primary" type="filled">LINK</vs-button>
+                        </span>
+                        <span>
+                            <!-- <p class="text-xl">{{ card_2.footer_text_right_value }}</p> -->
+                            <!-- <p class="text-grey">{{ card_2.footer_text_right_label }}</p> -->
+                            <vs-button @click="deleteIdea(item.id);" color="danger" type="filled" target="_blank">Delete</vs-button>
+                        </span>
+                    </div>
+                </vx-card>
+            </div>
+        </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -27,6 +34,7 @@ import moduleIdeaBoard from '@/store/idea-board/moduleIdeaBoard.js'
 import IdeaBoardAddNew from './IdeaBoardAddNew'
 import draggable from 'vuedraggable'
 import Datepicker from 'vuejs-datepicker'
+import VueGridLayout from 'vue-grid-layout'
 import { en, he } from 'vuejs-datepicker/src/locale'
 
 export default {
@@ -57,7 +65,9 @@ export default {
   components: {
     Datepicker,
     IdeaBoardAddNew,
-    draggable
+    draggable,
+    GridLayout: VueGridLayout.GridLayout,
+    GridItem: VueGridLayout.GridItem
   },
   methods: {
     link (url) {
@@ -75,17 +85,7 @@ export default {
 </script>
 
 <style lang="scss">
-/*! rtl:begin:ignore */
-#dashboard-analytics {
-  .tile {
-    // background-color: red;
-    margin-bottom: 20px;
-  }
-  .idea-tile-container {
-    display: flex;
-    justify-content: space-between;
-    widows: 420px;
-  }
+#idea-card {
+ 
 }
-/*! rtl:end:ignore */
 </style>
