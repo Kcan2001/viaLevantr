@@ -2,25 +2,25 @@
    <div id="idea-card">
         <IdeaBoardAddNew />
         <div class="vx-row">
-            <div class="vx-col w-full sm:w-1/2 lg:w-1/3 mb-base" v-for="item in list" :key="item.id">
+            <div class="vx-col w-full sm:w-1/2 lg:w-1/3 mb-base" v-for="idea in ideas" :key="idea.id">
                 <vx-card>
                     <img src="https://www.familyvacationcritic.com/uploads/sites/19/2018/09/best-ideas-1280x640.jpg" alt="content-img" class="responsive rounded-lg">
                     <div class="my-6">
-                          <h5 class="mb-2">{{ item.title }}</h5>
-                          <p class="text-grey">{{ item.location }}</p>
-                          <h5 v-if="item.startDate !== item.endDate" class="mb-2">{{ item.startDate | timestamp }} - {{ item.endDate | timestamp }}</h5>
+                          <h5 class="mb-2">{{ idea.title }}</h5>
+                          <p class="text-grey">{{ idea.location }}</p>
+                          <h5 v-if="idea.startDate !== idea.endDate" class="mb-2">{{ idea.startDate | timestamp }} - {{ idea.endDate | timestamp }}</h5>
                     </div>
                     <vs-divider></vs-divider>
                     <div class="flex justify-between flex-wrap">
                         <span>
                             <!-- <p class="text-xl">{{ card_2.footer_text_left_value }}</p> -->
                             <!-- <p class="text-grey">{{ card_2.footer_text_left_label }}</p> -->
-                            <vs-button v-if="item.url" @click="link(item.url);" color="primary" type="filled">LINK</vs-button>
+                            <vs-button v-if="idea.url" @click="link(idea);" color="primary" type="filled">LINK</vs-button>
                         </span>
                         <span>
                             <!-- <p class="text-xl">{{ card_2.footer_text_right_value }}</p> -->
                             <!-- <p class="text-grey">{{ card_2.footer_text_right_label }}</p> -->
-                            <vs-button @click="deleteIdea(item.id);" color="danger" type="filled" target="_blank">Delete</vs-button>
+                            <vs-button @click="deleteIdea(idea.id);" color="danger" type="filled" target="_blank">Delete</vs-button>
                         </span>
                     </div>
                 </vx-card>
@@ -49,7 +49,7 @@ export default {
       tileTitle: '',
       location: '',
       url: '',
-      list: [],
+      ideas: [],
       isLoading: false
     }
   },
@@ -60,7 +60,7 @@ export default {
     this.$store.dispatch('ideaBoard/fetchIdeaBoard')
   },
   mounted () {
-    this.list = this.$store.getters['idea-board/getIdeas']
+    this.ideas = this.$store.getters['idea-board/getIdeas']
   },
   components: {
     Datepicker,
@@ -70,8 +70,12 @@ export default {
     GridItem: VueGridLayout.GridItem
   },
   methods: {
-    link (url) {
-      window.open(`http://${url}`, '_blank')
+    link (idea) {
+      if (idea.extensionSaved) {
+        window.open(idea.url, '_blank')  
+      } else {
+        window.open(`http://${idea.url}`, '_blank')
+      }
     },
     deleteIdea (ideaId) {
       this.$vs.loading()
