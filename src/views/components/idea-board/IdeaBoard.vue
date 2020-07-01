@@ -4,7 +4,8 @@
         <div class="vx-row">
             <div class="vx-col w-full sm:w-1/2 lg:w-1/3 mb-base" v-for="idea in ideas" :key="idea.id">
                 <vx-card>
-                    <img src="https://www.familyvacationcritic.com/uploads/sites/19/2018/09/best-ideas-1280x640.jpg" alt="content-img" class="responsive rounded-lg">
+                    <img v-if="idea.isExtensionSaved" :src="idea.tab.favIconUrl" alt="content-img" class="responsive rounded-lg">
+                    <img v-else src="https://www.familyvacationcritic.com/uploads/sites/19/2018/09/best-ideas-1280x640.jpg" alt="content-img" class="responsive rounded-lg">
                     <div class="my-6">
                           <h5 class="mb-2">{{ idea.title }}</h5>
                           <p class="text-grey">{{ idea.location }}</p>
@@ -61,6 +62,10 @@ export default {
   },
   mounted () {
     this.ideas = this.$store.getters['idea-board/getIdeas']
+
+    setInterval(() => {
+      this.$store.dispatch('ideaBoard/fetchIdeaBoard')
+    }, 30000)
   },
   components: {
     Datepicker,
@@ -71,7 +76,7 @@ export default {
   },
   methods: {
     link (idea) {
-      if (idea.extensionSaved) {
+      if (idea.isExtensionSaved) {
         window.open(idea.url, '_blank')  
       } else {
         window.open(`http://${idea.url}`, '_blank')
@@ -89,7 +94,5 @@ export default {
 </script>
 
 <style lang="scss">
-#idea-card {
- 
-}
+
 </style>

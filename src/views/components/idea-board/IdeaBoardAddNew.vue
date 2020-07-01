@@ -83,7 +83,8 @@ export default {
         location: '',
         url: '',
         startDate: Date.now(),
-        endDate: Date.now()
+        endDate: Date.now(),
+        isExtensionSaved: false
       })
     },
     createTile () {
